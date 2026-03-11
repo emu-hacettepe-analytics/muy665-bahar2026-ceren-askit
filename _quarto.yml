@@ -3,30 +3,28 @@ project:
   output-dir: docs
 
 website:
-  title: "[xxxx]'in Analitik Labı"
+  title: "Ceren'in Analitik Labı"
   navbar:
     search: true
     left:
-      - text: Anasayfa
+      - text: HomePage/Anasayfa
         href: index.qmd
-      - text: Hakkımda
+      - text: AboutMe/Hakkımda
         href: about.qmd
-      - text: Gönderilerim
+      - text: MyPosts/Gönderilerim
         href: posts.qmd
       - text: "MUY665 Ders Çıktıları"
         menu:
-          - text: Ödevler
+          - text: Tasks/Ödevler
             href: portfolyo.qmd
-          - text: Proje
+          - text: Project/Proje
             href: project.qmd
             
     tools:
       - icon: github
-        href: https://twitter.com
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/ceren-askit
       - icon: linkedin
-        href: https://linkedin.com
+        href: https://www.linkedin.com/in/ceren-askit/
 
   sidebar:
     - title: "Çalışmalar"

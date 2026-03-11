@@ -1,40 +1,52 @@
 ---
-title: "Hakkımda"
+title: "About Me/Hakkımda"
 sidebar: false 
 ---
 
-![](assets/images/vesikalik.jpeg){fig-align="center"}
+![](assets/images/c_vesikalik.jpeg){fig-align="center" width="200px"}
 
-# Eğitim
+# Education/Eğitim
 
--   B.S., ................................., ....................................University, Turkey, 20xx - 20xx.
--   M.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
--   Ph.D.., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+-   M.S., Engineering Management, Hacettepe University, Turkey, 2026 - Ongoing.
+    
+    Yüksek Lisans, Mühendislik Yönetimi, Hacettepe Üniversitesi, Türkiye 2026 - Halen
 
-# İş Tecrübesi
+-   B.S., Geomatics Engineering , Hacettepe University, Turkey, 2017 - 2022.
+    
+    Lisans, Geomatik Mühendisliği, Hacettepe Üniversitesi, Türkiye, 2017 - 2022
 
-## Employements
 
-1.  Firm xxx, position xx, year xxx
+# Work Experience/İş Deneyimi
 
-2.  Firm yyy, position yyy, year yyy
+## Employements/Çalışan
 
-## Internships
+1.  BITES Defence and Aerospace, Avionics Software Test Engineer, Apr 2025 - Ongoing
+    
+    BİTES Savunma ve Havacılık, Aviyonik Yazılım Test Mühendisi, Nisan 2025 - Halen
 
-1.  Firm aaa, position xx, year xxx
+2.  SIMSOFT Computer Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025
+    
+    SİMSOFT Bilgisayar Teknolojileri, Aviyonik Yazılım Test Mühendisi, Mayıs 2023 - Mart 2025
 
-2.  Firm bbb, position yyy, year yyy
+## Internships/Stajyer
 
-# Projects
+1.  BITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021
+    
+    BİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021
 
-1.  TUBİTAK 1001..........................
 
-# Publications
+# Projects/Projeler
 
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+1.  Graduation Project, Extraction of Point Cloud-Based Information For Powerline Corridors 
+    
+    Bitirme Projesi, Elektrik Hattı Koridorları için Nokta Bulutu Tabanlı Bilgilerin Çıkarılması
 
-# Competencies
+# Publications/Yayınlar
 
-R, Quarto, Git, Python
+1.  Askit, C. & Ates, D. & Bakir, I. & Seyfeli, Semanur & Ok, Ali. (2023). EXTRACTION OF POINT CLOUD-BASED INFORMATION FOR POWERLINE CORRIDORS. The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences. XLVIII-4/W6-2022. 41-46. 10.5194/isprs-archives-XLVIII-4-W6-2022-41-2023. 
 
-# Hobbies
+# Certificates/Sertifikalar
+
+ISTQB Foundatiton Level, Dec 2024
+
+ISTQB Temel Seviye, Aralık 2024

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analitik sayfama hoş geldiniz",
     "section": "",
-    "text": "MUY660-İş Analitiği dersi sayfama hoş geldiniz.\nBu analitik çalışmalarımızı paylaşıyorum.\n\n\n\n Back to top"
+    "text": "MUY660-İş Analitiği dersi sayfama hoş geldiniz.\nBu sayfada analitik çalışmalarımı paylaşıyorum.\nBu alandaki çalışmalarım ve gelişmeler hakkında daha fazla bilgi için takipte kalın!\n\n\n\n Back to top"
   },
   {
     "objectID": "teammembers/volkansonmez.html",
@@ -547,16 +547,16 @@
   {
     "objectID": "about.html#employements",
     "href": "about.html#employements",
-    "title": "Hakkımda",
+    "title": "About Me",
     "section": "Employements",
-    "text": "Employements\n\nFirm xxx, position xx, year xxx\nFirm yyy, position yyy, year yyy"
+    "text": "Employements\n\nBITES Defence and Aerospace, BITES Defence and Aerospace, Apr 2025 - Ongoing\nSIMSOFT Information Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025"
   },
   {
     "objectID": "about.html#internships",
     "href": "about.html#internships",
-    "title": "Hakkımda",
+    "title": "About Me",
     "section": "Internships",
-    "text": "Internships\n\nFirm aaa, position xx, year xxx\nFirm bbb, position yyy, year yyy"
+    "text": "Internships\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021"
   },
   {
     "objectID": "posts.html",
@@ -564,5 +564,40 @@
     "title": "My Blog",
     "section": "",
     "text": "Bu sayfa yapım aşamasındadır.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Hakkımda",
+    "section": "",
+    "text": "{fig-align=“center”, width: “%30”}"
+  },
+  {
+    "objectID": "about.html#çalışanemployements",
+    "href": "about.html#çalışanemployements",
+    "title": "Hakkımda/About Me",
+    "section": "Çalışan/Employements",
+    "text": "Çalışan/Employements\n\nBITES Defence and Aerospace, Avionics Software Test Engineer, Apr 2025 - Ongoing BİTES Savunma ve Havacılık, Aviyonik Yazılım Test Mühendisi, Nisan 2025 - Halen\nSIMSOFT Computer Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025 SİMSOFT Bilgisayar Teknolojileri, Aviyonik Yazılım Test Mühendisi, Mayıs 2023 - Mart 2025"
+  },
+  {
+    "objectID": "about.html#stajyerinternships",
+    "href": "about.html#stajyerinternships",
+    "title": "Hakkımda/About Me",
+    "section": "Stajyer/Internships",
+    "text": "Stajyer/Internships\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021 BİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021"
+  },
+  {
+    "objectID": "about.html#employementsçalışan",
+    "href": "about.html#employementsçalışan",
+    "title": "About Me/Hakkımda",
+    "section": "Employements/Çalışan",
+    "text": "Employements/Çalışan\n\nBITES Defence and Aerospace, Avionics Software Test Engineer, Apr 2025 - Ongoing\nBİTES Savunma ve Havacılık, Aviyonik Yazılım Test Mühendisi, Nisan 2025 - Halen\nSIMSOFT Computer Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025\nSİMSOFT Bilgisayar Teknolojileri, Aviyonik Yazılım Test Mühendisi, Mayıs 2023 - Mart 2025"
+  },
+  {
+    "objectID": "about.html#internshipsstajyer",
+    "href": "about.html#internshipsstajyer",
+    "title": "About Me/Hakkımda",
+    "section": "Internships/Stajyer",
+    "text": "Internships/Stajyer\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021\nBİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021"
   }
 ]
