@@ -3,14 +3,182 @@ title: "Çalışma 1"
 ---
 
 \
-(Aşağıdakiler örnek olarak verilmiştir.)
 
-Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda cevap arıyoruz.
+Bu çalışma üç kısımdan oluşmaktadır. İlk kısımda (a), "Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu & Erdi Daşdemir" söyleşisinin özeti, ikinci kısımda ise (b), bu söyleşiyle ilgili bir açık uçlu bir de seçmeli soru hazırlanması yer almaktadır. Son kısımda (c) bir veri seti üzerinde istenilen çıktıları R fonksiyonlarını kullanarak hesaplamayı içermektedir.
+
+######## [Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu & Erdi Daşdemir Videosunu İzle](https://www.youtube.com/watch?v=tV_0pHSdLAM&t=8s){target="_blank"} {style="font-size: 0.7em;"}
 
 ## (a)
 
-```{r}
-1 + 1
-```
+Video, verinin ham halinden başlayarak en karmaşık karar destek mekanizmalarına uzanan yolculuğunu üç ana başlıkta ele alıyor:
+
+Analitik Türlerinin Entegrasyonu: Sadece "ne oldu?" (Betimsel/Descriptive) veya "ne olacak?" (Öngörücü/Predictive) sorularıyla yetinmeyip, "en iyi sonuç için ne yapmalıyım?" (Yönergeci/Prescriptive) sorusuna yanıt arayan optimizasyon modellerinin önemi vurgulanıyor.
+
+Modelin "Ürünleşmesi" (Deployment): Bir modelin sadece bir kod dosyasında (Jupyter Notebook veya R script) kalmasının iş dünyasında bir karşılığı olmadığı; bu modelin kullanıcı dostu bir arayüzle (UI) ve bilgi teknolojileri altyapısıyla birleşerek bir yazılım ürününe dönüşmesi gerektiği anlatılıyor.
+
+İş Birimi ve Teknik Ekip Arasındaki Köprü: Analitik projelerinin başarısının sadece algoritma başarısına değil, projenin şirketin maliyetlerini düşürme veya karını artırma gibi somut KPI (Key Performance Indicator/Temel Performans Göstergeleri) hedeflerine hizmet etmesine bağlı olduğu belirtiliyor.
 
 ## (b)
+
+Çoktan Seçmeli Soru:
+
+Analitik olgunluk modelinde, tahminleme (forecasting) modellerinden gelen sonuçları bir girdi olarak kullanarak, kısıtlı kaynaklar altında en kârlı veya en verimli kararı üreten analitik türü aşağıdakilerden hangisidir?
+
+A)  Betimsel (Descriptive) Analitik
+
+B)  Tanısal (Diagnostic) Analitik
+
+C)  Öngörücü (Predictive) Analitik
+
+D)  Yönergeci (Prescriptive) Analitik E) Görsel Analitik
+
+::: {.callout-note collapse="true"}
+## Cevabı görmek için tıklayınız.
+
+Cevap: D. (Videoda optimizasyon modellerinin, tahminlerin ötesine geçerek aksiyon önerdiği vurgulanmaktadır.)
+:::
+
+Açık Uçlu Soru:
+
+Videoda Baykal Hafızoğlu, bir analitik modelin matematiksel olarak çok başarılı olmasının, o projenin iş dünyasında başarılı sayılması için neden tek başına yeterli olmadığını savunmaktadır? Modelin "açıklanabilirliği" (explainability) ve "canlıya alınması" (deployment) kavramlarını kullanarak açıklayınız.
+
+::: {.callout-note collapse="true"}
+## Cevabı görmek için tıklayınız.
+
+Bir model çok yüksek tahmin başarısına sahip olsa bile, eğer karar vericiler (yöneticiler) modelin neden bu sonucu ürettiğini anlamazlarsa (kara kutu problemi), modeli uygulamaya almaktan çekinirler. Ayrıca, model yaşayan bir veri akışına (deployment) entegre edilmediği sürece sadece teorik bir çalışma olarak kalır; gerçek operasyonel süreçlerde değer yaratamaz.
+:::
+
+## (c)
+
+1.  Veri setinin olduğu kütüphanenin indirilmesi ve veri setinin aktarılması.
+
+```{r}
+#install.packages("dslabs") 
+library(dslabs) 
+
+data("polls_us_election_2016") 
+
+dataset <- polls_us_election_2016
+```
+
+2.  "my_first" ve "my_birth_year" değişkenlerinin tanımlanması.
+
+```{r}
+my_first <- "CEREN"
+my_birth_year <- 1998
+
+```
+
+3.  k tam sayısının tanımlanması.
+
+```{r}
+k <- (nchar(my_first) + my_birth_year) %% 15 + 8
+
+print(paste("k değeri:", k))
+
+```
+
+4.  Verisetindeki k sayısına göre satırların görüntülenmesi.
+
+```{r}
+library("knitr")
+
+# k = 16 olduğundan verisetinin ilk beş satırı görüntülenmiştir.
+
+k_satir <- if (k %% 2 == 0) head(dataset, 5) else tail(dataset, 5)
+
+kable(
+  k_satir,
+  caption = "k = 16 olduğundan veri setinin ilk 5 satırı görüntülenmiştir.",
+  align = "l"
+)
+
+```
+
+5.  Tüm veri setindeki toplam NA (eksik) değer sayısının değeri.
+
+```{r}
+
+toplam_na <- sum(is.na(dataset))
+
+print(paste("Toplam NA sayısı:", toplam_na))
+
+```
+
+6.  En büyükten en küçüğe sıralanmış şekilde sütun başına NA değer sayısı. (İlk sekiz sütun görüntülenmiştir.)
+
+```{r}
+
+sort_na <- sort(colSums(is.na(dataset)), decreasing = TRUE)[1:8]
+
+sort_na_df <- data.frame(
+  Degisken = names(sort_na), 
+  Eksik_Veri = sort_na
+)
+
+# 2. kable ile tabloyu oluştur
+library(knitr)
+kable(
+  sort_na_df,
+  caption = "Sütun Bazında En Yüksek NA Değer Sayıları (İlk 8 Sütun)",
+  align = "l",
+  col.names = c("Değişken Adı", "NA Sayısı"), 
+  row.names = FALSE,
+)
+```
+
+7.  Veri setindeki tüm NA değerlerini Sayısal (numeric) sütunlar için: NA değerlerini my_birth_year + k ile değiştirilmesi.
+
+```{r}
+
+new_dataset <- dataset
+
+for (i in 1:ncol(new_dataset)) {
+  
+  # Sayısal (numeric) sütunlar için: 1998 + 16 = 2014
+  if (is.numeric(new_dataset[[i]])) {
+    new_dataset[[i]][is.na(new_dataset[[i]])] <- my_birth_year + k
+  }
+  
+  # Karakter veya Faktör sütunlar için: "CEREN_16"
+  else if (is.character(new_dataset[[i]]) | is.factor(new_dataset[[i]])) {
+    
+    # Faktör sütunlarda seviye (level) hatası almamak için karaktere çeviriyoruz
+    if (is.factor(new_dataset[[i]])) {
+      new_dataset[[i]] <- as.character(new_dataset[[i]])
+    }
+    
+    new_dataset[[i]][is.na(new_dataset[[i]])] <- paste0(my_first, "_", k)
+  }
+}
+```
+
+8.Yeni veri çerçevesi (data frame) oluşturulması.
+
+```{r}
+
+new_dataset.dataframe <- if (k %% 2 == 0) head(new_dataset, k) else tail(new_dataset, k)
+
+kable(
+  new_dataset.dataframe,
+  caption = "k = 16 olduğundan verinin ilk 16 satırı görüntülenmiştir.",
+  align = "l"
+)
+
+```
+
+9.  Yeni veri çerçevesinde kalan NA sayısının hesaplanması.
+
+```{r}
+new_dataset_toplam_na <- sum(is.na(new_dataset))
+
+print(paste("Yeni veri çerçevesinde kalan toplam NA sayısı:", new_dataset_toplam_na))
+```
+
+10. Yeni veri çerçevesinde bir NA değerinin olup olmadığının sorgulanması.
+
+```{r}
+new_dataset_anyNA <- anyNA(new_dataset)
+
+print(paste("Yeni veri çerçevesinde NA var mı?:", new_dataset_anyNA))
+```

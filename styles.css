@@ -28,3 +28,11 @@ li, p {
 strong {
   font-weight: 600;
 }
+
+
+.btn-primary {
+  background-color: #2980b9 !important;
+  border-color: #2980b9 !important;
+  padding: 10px 20px !important;
+  font-weight: bold !important;
+}

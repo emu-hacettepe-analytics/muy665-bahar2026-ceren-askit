@@ -297,15 +297,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Anasayfa</span></a>
+<span class="menu-text">HomePage/Anasayfa</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
-<span class="menu-text">Hakkımda</span></a>
+<span class="menu-text">AboutMe/Hakkımda</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../posts.html"> 
-<span class="menu-text">Gönderilerim</span></a>
+<span class="menu-text">MyPosts/Gönderilerim</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-muy665-ders-çıktıları" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -314,11 +314,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-muy665-ders-çıktıları">    
         <li>
     <a class="dropdown-item" href="../portfolyo.html">
- <span class="dropdown-text">Ödevler</span></a>
+ <span class="dropdown-text">Tasks/Ödevler</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../project.qmd">
- <span class="dropdown-text">Proje</span></a>
+ <span class="dropdown-text">Project/Proje</span></a>
   </li>  
     </ul>
   </li>
@@ -382,6 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a">(a)</a></li>
   <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
   </ul>
 </nav>
 </nav>
@@ -413,19 +414,687 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><br>
-(Aşağıdakiler örnek olarak verilmiştir.)</p>
-<p>Bu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.</p>
+</p>
+<p>Bu çalışma üç kısımdan oluşmaktadır. İlk kısımda (a), “Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu &amp; Erdi Daşdemir” söyleşisinin özeti, ikinci kısımda ise (b), bu söyleşiyle ilgili bir açık uçlu bir de seçmeli soru hazırlanması yer almaktadır. Son kısımda (c) bir veri seti üzerinde istenilen çıktıları R fonksiyonlarını kullanarak hesaplamayı içermektedir.</p>
+<section id="veri-bilimi-ve-endüstri-mühendisliği-üzerine-sohbetler---baykal-hafızoğlu-erdi-daşdemir-videosunu-izle" class="level8" style="font-size: 0.7em;">
+<p class="heading" style="font-size: 0.7em;"><a href="https://www.youtube.com/watch?v=tV_0pHSdLAM&amp;t=8s" target="_blank">Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu &amp; Erdi Daşdemir Videosunu İzle</a></p>
+</section>
 <section id="a" class="level2">
 <h2 class="anchored" data-anchor-id="a">(a)</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<p>Video, verinin ham halinden başlayarak en karmaşık karar destek mekanizmalarına uzanan yolculuğunu üç ana başlıkta ele alıyor:</p>
+<p>Analitik Türlerinin Entegrasyonu: Sadece “ne oldu?” (Betimsel/Descriptive) veya “ne olacak?” (Öngörücü/Predictive) sorularıyla yetinmeyip, “en iyi sonuç için ne yapmalıyım?” (Yönergeci/Prescriptive) sorusuna yanıt arayan optimizasyon modellerinin önemi vurgulanıyor.</p>
+<p>Modelin “Ürünleşmesi” (Deployment): Bir modelin sadece bir kod dosyasında (Jupyter Notebook veya R script) kalmasının iş dünyasında bir karşılığı olmadığı; bu modelin kullanıcı dostu bir arayüzle (UI) ve bilgi teknolojileri altyapısıyla birleşerek bir yazılım ürününe dönüşmesi gerektiği anlatılıyor.</p>
+<p>İş Birimi ve Teknik Ekip Arasındaki Köprü: Analitik projelerinin başarısının sadece algoritma başarısına değil, projenin şirketin maliyetlerini düşürme veya karını artırma gibi somut KPI (Key Performance Indicator/Temel Performans Göstergeleri) hedeflerine hizmet etmesine bağlı olduğu belirtiliyor.</p>
 </section>
 <section id="b" class="level2">
 <h2 class="anchored" data-anchor-id="b">(b)</h2>
+<p>Çoktan Seçmeli Soru:</p>
+<p>Analitik olgunluk modelinde, tahminleme (forecasting) modellerinden gelen sonuçları bir girdi olarak kullanarak, kısıtlı kaynaklar altında en kârlı veya en verimli kararı üreten analitik türü aşağıdakilerden hangisidir?</p>
+<ol type="A">
+<li><p>Betimsel (Descriptive) Analitik</p></li>
+<li><p>Tanısal (Diagnostic) Analitik</p></li>
+<li><p>Öngörücü (Predictive) Analitik</p></li>
+<li><p>Yönergeci (Prescriptive) Analitik E) Görsel Analitik</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cevabı görmek için tıklayınız.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cevap: D. (Videoda optimizasyon modellerinin, tahminlerin ötesine geçerek aksiyon önerdiği vurgulanmaktadır.)</p>
+</div>
+</div>
+</div>
+<p>Açık Uçlu Soru:</p>
+<p>Videoda Baykal Hafızoğlu, bir analitik modelin matematiksel olarak çok başarılı olmasının, o projenin iş dünyasında başarılı sayılması için neden tek başına yeterli olmadığını savunmaktadır? Modelin “açıklanabilirliği” (explainability) ve “canlıya alınması” (deployment) kavramlarını kullanarak açıklayınız.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cevabı görmek için tıklayınız.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Bir model çok yüksek tahmin başarısına sahip olsa bile, eğer karar vericiler (yöneticiler) modelin neden bu sonucu ürettiğini anlamazlarsa (kara kutu problemi), modeli uygulamaya almaktan çekinirler. Ayrıca, model yaşayan bir veri akışına (deployment) entegre edilmediği sürece sadece teorik bir çalışma olarak kalır; gerçek operasyonel süreçlerde değer yaratamaz.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">(c)</h2>
+<ol type="1">
+<li>Veri setinin olduğu kütüphanenin indirilmesi ve veri setinin aktarılması.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("dslabs") </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"polls_us_election_2016"</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> polls_us_election_2016</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>“my_first” ve “my_birth_year” değişkenlerinin tanımlanması.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_first <span class="ot">&lt;-</span> <span class="st">"CEREN"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_birth_year <span class="ot">&lt;-</span> <span class="dv">1998</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="3" type="1">
+<li>k tam sayısının tanımlanması.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> (<span class="fu">nchar</span>(my_first) <span class="sc">+</span> my_birth_year) <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">+</span> <span class="dv">8</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"k değeri:"</span>, k))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "k değeri: 16"</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Verisetindeki k sayısına göre satırların görüntülenmesi.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># k = 16 olduğundan verisetinin ilk beş satırı görüntülenmiştir.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>k_satir <span class="ot">&lt;-</span> <span class="cf">if</span> (k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">head</span>(dataset, <span class="dv">5</span>) <span class="cf">else</span> <span class="fu">tail</span>(dataset, <span class="dv">5</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  k_satir,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"k = 16 olduğundan veri setinin ilk 5 satırı görüntülenmiştir."</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"l"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>k = 16 olduğundan veri setinin ilk 5 satırı görüntülenmiştir.</caption>
+<colgroup>
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 12%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: left;">startdate</th>
+<th style="text-align: left;">enddate</th>
+<th style="text-align: left;">pollster</th>
+<th style="text-align: left;">grade</th>
+<th style="text-align: left;">samplesize</th>
+<th style="text-align: left;">population</th>
+<th style="text-align: left;">rawpoll_clinton</th>
+<th style="text-align: left;">rawpoll_trump</th>
+<th style="text-align: left;">rawpoll_johnson</th>
+<th style="text-align: left;">rawpoll_mcmullin</th>
+<th style="text-align: left;">adjpoll_clinton</th>
+<th style="text-align: left;">adjpoll_trump</th>
+<th style="text-align: left;">adjpoll_johnson</th>
+<th style="text-align: left;">adjpoll_mcmullin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">ABC News/Washington Post</td>
+<td style="text-align: left;">A+</td>
+<td style="text-align: left;">2220</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">47.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">4.00</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">45.20163</td>
+<td style="text-align: left;">41.72430</td>
+<td style="text-align: left;">4.626221</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-01</td>
+<td style="text-align: left;">2016-11-07</td>
+<td style="text-align: left;">Google Consumer Surveys</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">26574</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">38.03</td>
+<td style="text-align: left;">35.69</td>
+<td style="text-align: left;">5.46</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">43.34557</td>
+<td style="text-align: left;">41.21439</td>
+<td style="text-align: left;">5.175792</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-02</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Ipsos</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">2195</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">42.00</td>
+<td style="text-align: left;">39.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">42.02638</td>
+<td style="text-align: left;">38.81620</td>
+<td style="text-align: left;">6.844734</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">2016-11-07</td>
+<td style="text-align: left;">YouGov</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">3677</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">45.00</td>
+<td style="text-align: left;">41.00</td>
+<td style="text-align: left;">5.00</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">45.65676</td>
+<td style="text-align: left;">40.92004</td>
+<td style="text-align: left;">6.069454</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Gravis Marketing</td>
+<td style="text-align: left;">B-</td>
+<td style="text-align: left;">16639</td>
+<td style="text-align: left;">rv</td>
+<td style="text-align: left;">47.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">3.00</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">46.84089</td>
+<td style="text-align: left;">42.33184</td>
+<td style="text-align: left;">3.726098</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Tüm veri setindeki toplam NA (eksik) değer sayısının değeri.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>toplam_na <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dataset))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Toplam NA sayısı:"</span>, toplam_na))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Toplam NA sayısı: 11604"</code></pre>
+</div>
+</div>
+<ol start="6" type="1">
+<li>En büyükten en küçüğe sıralanmış şekilde sütun başına NA değer sayısı. (İlk sekiz sütun görüntülenmiştir.)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sort_na <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">colSums</span>(<span class="fu">is.na</span>(dataset)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sort_na_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Degisken =</span> <span class="fu">names</span>(sort_na), </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Eksik_Veri =</span> sort_na</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. kable ile tabloyu oluştur</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  sort_na_df,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Sütun Bazında En Yüksek NA Değer Sayıları (İlk 8 Sütun)"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"l"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Değişken Adı"</span>, <span class="st">"NA Sayısı"</span>), </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sütun Bazında En Yüksek NA Değer Sayıları (İlk 8 Sütun)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Değişken Adı</th>
+<th style="text-align: left;">NA Sayısı</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">rawpoll_mcmullin</td>
+<td style="text-align: left;">4178</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">adjpoll_mcmullin</td>
+<td style="text-align: left;">4178</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rawpoll_johnson</td>
+<td style="text-align: left;">1409</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">adjpoll_johnson</td>
+<td style="text-align: left;">1409</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">grade</td>
+<td style="text-align: left;">429</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">samplesize</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">startdate</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Veri setindeki tüm NA değerlerini Sayısal (numeric) sütunlar için: NA değerlerini my_birth_year + k ile değiştirilmesi.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>new_dataset <span class="ot">&lt;-</span> dataset</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(new_dataset)) {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sayısal (numeric) sütunlar için: 1998 + 16 = 2014</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(new_dataset[[i]])) {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    new_dataset[[i]][<span class="fu">is.na</span>(new_dataset[[i]])] <span class="ot">&lt;-</span> my_birth_year <span class="sc">+</span> k</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Karakter veya Faktör sütunlar için: "CEREN_16"</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.character</span>(new_dataset[[i]]) <span class="sc">|</span> <span class="fu">is.factor</span>(new_dataset[[i]])) {</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Faktör sütunlarda seviye (level) hatası almamak için karaktere çeviriyoruz</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.factor</span>(new_dataset[[i]])) {</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      new_dataset[[i]] <span class="ot">&lt;-</span> <span class="fu">as.character</span>(new_dataset[[i]])</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    new_dataset[[i]][<span class="fu">is.na</span>(new_dataset[[i]])] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_first, <span class="st">"_"</span>, k)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>8.Yeni veri çerçevesi (data frame) oluşturulması.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>new_dataset.dataframe <span class="ot">&lt;-</span> <span class="cf">if</span> (k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">head</span>(new_dataset, k) <span class="cf">else</span> <span class="fu">tail</span>(new_dataset, k)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  new_dataset.dataframe,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"k = 16 olduğundan verinin ilk 16 satırı görüntülenmiştir."</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"l"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>k = 16 olduğundan verinin ilk 16 satırı görüntülenmiştir.</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 23%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">state</th>
+<th style="text-align: left;">startdate</th>
+<th style="text-align: left;">enddate</th>
+<th style="text-align: left;">pollster</th>
+<th style="text-align: left;">grade</th>
+<th style="text-align: left;">samplesize</th>
+<th style="text-align: left;">population</th>
+<th style="text-align: left;">rawpoll_clinton</th>
+<th style="text-align: left;">rawpoll_trump</th>
+<th style="text-align: left;">rawpoll_johnson</th>
+<th style="text-align: left;">rawpoll_mcmullin</th>
+<th style="text-align: left;">adjpoll_clinton</th>
+<th style="text-align: left;">adjpoll_trump</th>
+<th style="text-align: left;">adjpoll_johnson</th>
+<th style="text-align: left;">adjpoll_mcmullin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">ABC News/Washington Post</td>
+<td style="text-align: left;">A+</td>
+<td style="text-align: left;">2220</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">47.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">4.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">45.20163</td>
+<td style="text-align: left;">41.72430</td>
+<td style="text-align: left;">4.626221</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-01</td>
+<td style="text-align: left;">2016-11-07</td>
+<td style="text-align: left;">Google Consumer Surveys</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">26574</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">38.03</td>
+<td style="text-align: left;">35.69</td>
+<td style="text-align: left;">5.46</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">43.34557</td>
+<td style="text-align: left;">41.21439</td>
+<td style="text-align: left;">5.175792</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-02</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Ipsos</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">2195</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">42.00</td>
+<td style="text-align: left;">39.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">42.02638</td>
+<td style="text-align: left;">38.81620</td>
+<td style="text-align: left;">6.844734</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">2016-11-07</td>
+<td style="text-align: left;">YouGov</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">3677</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">45.00</td>
+<td style="text-align: left;">41.00</td>
+<td style="text-align: left;">5.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">45.65676</td>
+<td style="text-align: left;">40.92004</td>
+<td style="text-align: left;">6.069454</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Gravis Marketing</td>
+<td style="text-align: left;">B-</td>
+<td style="text-align: left;">16639</td>
+<td style="text-align: left;">rv</td>
+<td style="text-align: left;">47.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">3.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">46.84089</td>
+<td style="text-align: left;">42.33184</td>
+<td style="text-align: left;">3.726098</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Fox News/Anderson Robbins Research/Shaw &amp; Company Research</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">1295</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">48.00</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">3.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">49.02208</td>
+<td style="text-align: left;">43.95631</td>
+<td style="text-align: left;">3.057876</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-02</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">CBS News/New York Times</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">1426</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">45.00</td>
+<td style="text-align: left;">41.00</td>
+<td style="text-align: left;">5.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">45.11649</td>
+<td style="text-align: left;">40.92722</td>
+<td style="text-align: left;">4.341786</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-05</td>
+<td style="text-align: left;">NBC News/Wall Street Journal</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">1282</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">40.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">43.58576</td>
+<td style="text-align: left;">40.77325</td>
+<td style="text-align: left;">5.365788</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New Mexico</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Zia Poll</td>
+<td style="text-align: left;">CEREN_16</td>
+<td style="text-align: left;">8439</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">46.00</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">44.82594</td>
+<td style="text-align: left;">41.59978</td>
+<td style="text-align: left;">7.870127</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">2016-11-07</td>
+<td style="text-align: left;">IBD/TIPP</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">1107</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">41.20</td>
+<td style="text-align: left;">42.70</td>
+<td style="text-align: left;">7.10</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">42.92745</td>
+<td style="text-align: left;">42.23545</td>
+<td style="text-align: left;">6.316175</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Selzer &amp; Company</td>
+<td style="text-align: left;">A+</td>
+<td style="text-align: left;">799</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">41.00</td>
+<td style="text-align: left;">4.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">44.21714</td>
+<td style="text-align: left;">40.57082</td>
+<td style="text-align: left;">4.068708</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-01</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">Angus Reid Global</td>
+<td style="text-align: left;">A-</td>
+<td style="text-align: left;">1151</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">48.00</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">47.57171</td>
+<td style="text-align: left;">43.68125</td>
+<td style="text-align: left;">5.556625</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-06</td>
+<td style="text-align: left;">Monmouth University</td>
+<td style="text-align: left;">A+</td>
+<td style="text-align: left;">748</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">50.00</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">4.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">48.86765</td>
+<td style="text-align: left;">43.39600</td>
+<td style="text-align: left;">4.838600</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Virginia</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">Public Policy Polling</td>
+<td style="text-align: left;">B+</td>
+<td style="text-align: left;">1238</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">48.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">47.43805</td>
+<td style="text-align: left;">42.32751</td>
+<td style="text-align: left;">2.207659</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S.</td>
+<td style="text-align: left;">2016-11-01</td>
+<td style="text-align: left;">2016-11-03</td>
+<td style="text-align: left;">Marist College</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">940</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">44.00</td>
+<td style="text-align: left;">43.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">42.83406</td>
+<td style="text-align: left;">43.43819</td>
+<td style="text-align: left;">4.780429</td>
+<td style="text-align: left;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iowa</td>
+<td style="text-align: left;">2016-11-01</td>
+<td style="text-align: left;">2016-11-04</td>
+<td style="text-align: left;">Selzer &amp; Company</td>
+<td style="text-align: left;">A+</td>
+<td style="text-align: left;">800</td>
+<td style="text-align: left;">lv</td>
+<td style="text-align: left;">39.00</td>
+<td style="text-align: left;">46.00</td>
+<td style="text-align: left;">6.00</td>
+<td style="text-align: left;">2014</td>
+<td style="text-align: left;">39.37561</td>
+<td style="text-align: left;">45.66917</td>
+<td style="text-align: left;">6.062713</td>
+<td style="text-align: left;">2014</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="9" type="1">
+<li>Yeni veri çerçevesinde kalan NA sayısının hesaplanması.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>new_dataset_toplam_na <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(new_dataset))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Yeni veri çerçevesinde kalan toplam NA sayısı:"</span>, new_dataset_toplam_na))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Yeni veri çerçevesinde kalan toplam NA sayısı: 0"</code></pre>
+</div>
+</div>
+<ol start="10" type="1">
+<li>Yeni veri çerçevesinde bir NA değerinin olup olmadığının sorgulanması.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>new_dataset_anyNA <span class="ot">&lt;-</span> <span class="fu">anyNA</span>(new_dataset)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Yeni veri çerçevesinde NA var mı?:"</span>, new_dataset_anyNA))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Yeni veri çerçevesinde NA var mı?: FALSE"</code></pre>
+</div>
+</div>
 
 
 </section>

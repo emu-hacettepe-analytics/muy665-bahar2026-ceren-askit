@@ -50,3 +50,14 @@ sidebar: false
 ISTQB Foundatiton Level, Dec 2024
 
 ISTQB Temel Seviye, Aralık 2024
+
+
+# CV/Özgeçmiş
+
+If you would like to review the resume in more detail, you can click the button below.
+
+Özgeçmiş dosyasını daha detaylı incelemek isterseniz aşağıdaki butona basabilirsiniz.
+  
+<a href="./assets/documents/CEREN-ASKİT_CV.pdf" class="btn btn-primary" target="_blank" style="margin-top: 20px;">
+  <i class="bi bi-file-earmark-pdf"></i> CV/Özgeçmiş (PDF)
+</a>

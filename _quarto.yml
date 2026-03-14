@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources: 
+     - "/assets/documents/CEREN-ASKİT_CV.pdf"
 
 website:
   title: "Ceren'in Analitik Labı"
@@ -23,8 +25,10 @@ website:
     tools:
       - icon: github
         href: https://github.com/ceren-askit
+        target: _blank
       - icon: linkedin
         href: https://www.linkedin.com/in/ceren-askit/
+        target: _blank
 
   sidebar:
     - title: "Çalışmalar"
