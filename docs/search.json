@@ -169,5 +169,40 @@
     "title": "Analitik sayfama hoş geldiniz",
     "section": "",
     "text": "MUY660-İş Analitiği dersi sayfama hoş geldiniz.\nBu sayfada analitik çalışmalarımı paylaşıyorum.\nBu alandaki çalışmalarım ve gelişmeler hakkında daha fazla bilgi için takipte kalın!\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "proje.html#tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri",
+    "href": "proje.html#tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.1 Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri",
+    "text": "5.1 Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri\n\n\n\n\n\n\n\n\nTiyatro Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n4.569\n3.437\n608\n4.252\n9.796\n\n\nOyun_Telif\n25\n3.817\n2.969\n376\n3.470\n8.392\n\n\nOyun_Ceviri\n25\n751\n478\n160\n782\n1.488\n\n\nToplam_Seyirci\n25\n4.698.386\n2.042.384\n714.864\n5.248.226\n8.053.186\n\n\nSeyirci_Telif\n25\n3.462.208\n1.614.695\n541.659\n3.854.341\n5.903.438\n\n\nSeyirci_Ceviri\n25\n1.236.178\n466.938\n173.205\n1.255.391\n2.158.041"
+  },
+  {
+    "objectID": "takim/cerenaskit.html#employementsçalışan",
+    "href": "takim/cerenaskit.html#employementsçalışan",
+    "title": "Ceren Aşkit",
+    "section": "Employements/Çalışan",
+    "text": "Employements/Çalışan\n\nBITES Defence and Aerospace, Avionics Software Test Engineer, Apr 2025 - Ongoing\nBİTES Savunma ve Havacılık, Aviyonik Yazılım Test Mühendisi, Nisan 2025 - Halen\nSIMSOFT Computer Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025\nSİMSOFT Bilgisayar Teknolojileri, Aviyonik Yazılım Test Mühendisi, Mayıs 2023 - Mart 2025"
+  },
+  {
+    "objectID": "takim/cerenaskit.html#internshipsstajyer",
+    "href": "takim/cerenaskit.html#internshipsstajyer",
+    "title": "Ceren Aşkit",
+    "section": "Internships/Stajyer",
+    "text": "Internships/Stajyer\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021\nBİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021"
+  },
+  {
+    "objectID": "docs/takim/cerenaskit.html#employementsçalışan",
+    "href": "docs/takim/cerenaskit.html#employementsçalışan",
+    "title": "About Me/Hakkımda",
+    "section": "Employements/Çalışan",
+    "text": "Employements/Çalışan\n\nBITES Defence and Aerospace, Avionics Software Test Engineer, Apr 2025 - Ongoing\nBİTES Savunma ve Havacılık, Aviyonik Yazılım Test Mühendisi, Nisan 2025 - Halen\nSIMSOFT Computer Technologies, Avionics Software Test Engineer, May 2023 - Mar 2025\nSİMSOFT Bilgisayar Teknolojileri, Aviyonik Yazılım Test Mühendisi, Mayıs 2023 - Mart 2025"
+  },
+  {
+    "objectID": "docs/takim/cerenaskit.html#internshipsstajyer",
+    "href": "docs/takim/cerenaskit.html#internshipsstajyer",
+    "title": "About Me/Hakkımda",
+    "section": "Internships/Stajyer",
+    "text": "Internships/Stajyer\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021\nBİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021"
   }
 ]

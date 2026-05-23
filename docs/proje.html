@@ -74,6 +74,26 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -280,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Tasks/Ödevler</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./project.qmd">
+    <a class="dropdown-item" href="./proje.html">
  <span class="dropdown-text">Project/Proje</span></a>
   </li>  
     </ul>
@@ -288,8 +308,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/ceren-askit" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://www.linkedin.com/in/ceren-askit/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/ceren-askit" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/ceren-askit/" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -303,22 +323,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#proje-genel-bakış-ve-kapsamı" id="toc-proje-genel-bakış-ve-kapsamı" class="nav-link active" data-scroll-target="#proje-genel-bakış-ve-kapsamı"><span class="header-section-number">1</span> Proje Genel Bakış ve Kapsamı</a></li>
-  <li><a href="#veri" id="toc-veri" class="nav-link" data-scroll-target="#veri"><span class="header-section-number">2</span> Veri</a>
+  <li><a href="#proje-ekip-üyeleri" id="toc-proje-ekip-üyeleri" class="nav-link active" data-scroll-target="#proje-ekip-üyeleri"><span class="header-section-number">1</span> Proje Ekip Üyeleri</a></li>
+  <li><a href="#proje-genel-bakış-ve-kapsamı" id="toc-proje-genel-bakış-ve-kapsamı" class="nav-link" data-scroll-target="#proje-genel-bakış-ve-kapsamı"><span class="header-section-number">2</span> Proje Genel Bakış ve Kapsamı</a></li>
+  <li><a href="#veri" id="toc-veri" class="nav-link" data-scroll-target="#veri"><span class="header-section-number">3</span> Veri</a></li>
+  <li><a href="#veri-kaynağı" id="toc-veri-kaynağı" class="nav-link" data-scroll-target="#veri-kaynağı"><span class="header-section-number">4</span> Veri Kaynağı</a></li>
+  <li><a href="#keşifsel-veri-analizi-ve-ön-işleme" id="toc-keşifsel-veri-analizi-ve-ön-işleme" class="nav-link" data-scroll-target="#keşifsel-veri-analizi-ve-ön-işleme"><span class="header-section-number">5</span> Keşifsel Veri Analizi ve Ön İşleme</a>
   <ul class="collapse">
-  <li><a href="#veri-kaynağı" id="toc-veri-kaynağı" class="nav-link" data-scroll-target="#veri-kaynağı"><span class="header-section-number">2.1</span> Veri Kaynağı</a></li>
-  <li><a href="#veri-hakkında-genel-bilgiler" id="toc-veri-hakkında-genel-bilgiler" class="nav-link" data-scroll-target="#veri-hakkında-genel-bilgiler"><span class="header-section-number">2.2</span> Veri Hakkında Genel Bilgiler</a></li>
-  <li><a href="#tercih-sebebi" id="toc-tercih-sebebi" class="nav-link" data-scroll-target="#tercih-sebebi"><span class="header-section-number">2.3</span> Tercih Sebebi</a></li>
-  <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</a></li>
+  <li><a href="#veriye-genel-bakış" id="toc-veriye-genel-bakış" class="nav-link" data-scroll-target="#veriye-genel-bakış"><span class="header-section-number">5.0.1</span> Veriye Genel Bakış</a></li>
+  <li><a href="#veride-bulunan-sütunlardaki-na-sayısı" id="toc-veride-bulunan-sütunlardaki-na-sayısı" class="nav-link" data-scroll-target="#veride-bulunan-sütunlardaki-na-sayısı"><span class="header-section-number">5.0.2</span> Veride bulunan Sütunlardaki NA Sayısı</a></li>
+  <li><a href="#tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri" id="toc-tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri" class="nav-link" data-scroll-target="#tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri"><span class="header-section-number">5.1</span> Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri</a></li>
   </ul></li>
-  <li><a href="#analiz" id="toc-analiz" class="nav-link" data-scroll-target="#analiz"><span class="header-section-number">3</span> Analiz</a>
-  <ul class="collapse">
-  <li><a href="#keşifsel-veri-analizi" id="toc-keşifsel-veri-analizi" class="nav-link" data-scroll-target="#keşifsel-veri-analizi"><span class="header-section-number">3.1</span> Keşifsel Veri Analizi</a></li>
-  <li><a href="#trend-analizi" id="toc-trend-analizi" class="nav-link" data-scroll-target="#trend-analizi"><span class="header-section-number">3.2</span> Trend Analizi</a></li>
-  <li><a href="#model-uydurma" id="toc-model-uydurma" class="nav-link" data-scroll-target="#model-uydurma"><span class="header-section-number">3.3</span> Model Uydurma</a></li>
-  <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar"><span class="header-section-number">3.4</span> Sonuçlar</a></li>
-  </ul></li>
-  <li><a href="#sonuçlar-ve-ana-çıkarımlar" id="toc-sonuçlar-ve-ana-çıkarımlar" class="nav-link" data-scroll-target="#sonuçlar-ve-ana-çıkarımlar"><span class="header-section-number">4</span> Sonuçlar ve Ana Çıkarımlar</a></li>
   </ul>
 </nav>
 </nav>
@@ -351,55 +365,2520 @@ ul.task-list li input[type="checkbox"] {
 
 <p><strong>Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.</strong></p>
 <p>(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)</p>
-<section id="proje-genel-bakış-ve-kapsamı" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Proje Genel Bakış ve Kapsamı</h1>
-<p>xxxxxx</p>
+<section id="proje-ekip-üyeleri" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Proje Ekip Üyeleri</h1>
+<p><a href="./takim/cerenaskit.html" class="download-button">Ceren Aşkit</a></p>
 </section>
-<section id="veri" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Veri</h1>
-<p>xxxxxx</p>
-<section id="veri-kaynağı" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="veri-kaynağı"><span class="header-section-number">2.1</span> Veri Kaynağı</h2>
-<p>xxxxxx</p>
+<section id="proje-genel-bakış-ve-kapsamı" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Proje Genel Bakış ve Kapsamı</h1>
 </section>
-<section id="veri-hakkında-genel-bilgiler" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="veri-hakkında-genel-bilgiler"><span class="header-section-number">2.2</span> Veri Hakkında Genel Bilgiler</h2>
-<p>xxxxxx</p>
+<section id="veri" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Veri</h1>
+<p>Türkiye’nin son çeyrek asırdaki sosyo-ekonomik dönüşümünü, kültürel tüketim eğilimlerini ve dijitalleşme hızını arz-talep dengesi çerçevesinde ortaya koyan çok boyutlu bir görünüm sunmaktadır. Cinsiyete Göre Nüfus ve Hanehalkı Tüketim Harcaması verileri, toplumsal yapının demografik büyümesini ve ekonomik refah seviyesine bağlı olarak eğlence-kültüre ayrılan bütçe payını gösteren temel makro göstergelerdir. Tiyatro, Sinema ile Opera ve Bale veri setleri ise salon, koltuk ve eser sayılarıyla kültürel altyapının (arzın) genişlemesini; seyirci sayılarıyla da bu sanatsal faaliyetlere olan toplumsal talebin boyutu ile kırılma noktalarını (pandemi, ekonomik dalgalanmalar vb.) temsil etmektedir. Son olarak, Cinsiyete Göre İnternet Kullanım Oranı serisi, hızla yükselen dijitalleşme trendinin, bireylerin ev dışı fiziksel etkinliklere (tiyatro, opera) katılım alışkanlıkları veya dijital platformlara (sinema alternatifi olarak) yönelimleri üzerindeki dönüştürücü etkisini analiz etmeye olanak tanımaktadır.</p>
 </section>
-<section id="tercih-sebebi" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="tercih-sebebi"><span class="header-section-number">2.3</span> Tercih Sebebi</h2>
-<p>xxxxxx</p>
+<section id="veri-kaynağı" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Veri Kaynağı</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 35%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Sıra</th>
+<th style="text-align: left;">Veri_Seti</th>
+<th style="text-align: left;">Kaynak</th>
+<th style="text-align: left;">Veri_Tipi</th>
+<th style="text-align: left;">Yapısal_Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Sezon Yılına Göre Tiyatro Salonu, Oynanan Eser ve Seyirci Sayısı</td>
+<td style="text-align: left;">TÜİK (Kültür İstatistikleri)</td>
+<td style="text-align: left;">Sayısal (Yıllık/Sezon)</td>
+<td style="text-align: left;">Bağımlı Değişken (Analiz Edilen Temel Trend)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Opera ve Bale Salonu, Koltuk, Oynanan Eser ve Seyirci Sayısı</td>
+<td style="text-align: left;">TÜİK (Kültür İstatistikleri)</td>
+<td style="text-align: left;">Sayısal (Yıllık)</td>
+<td style="text-align: left;">Karşılaştırmalı Değişken (Niş Sanat Dalı Trendi)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Sinema Gösterilen Film ve Seyirci Sayısı</td>
+<td style="text-align: left;">TÜİK (Kültür İstatistikleri)</td>
+<td style="text-align: left;">Sayısal (Yıllık)</td>
+<td style="text-align: left;">Karşılaştırmalı Değişken (Kitlesel Eğlence Trendi)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Hanehalkı Tüketim Harcamasının Türlerine Göre Dağılımı</td>
+<td style="text-align: left;">TÜİK (Gelir ve Yaşam Koşulları)</td>
+<td style="text-align: left;">Yüzde (%)</td>
+<td style="text-align: left;">Bağımsız Değişken (Ekonomik Bütçe/Refah Etkisi)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Cinsiyete Göre Bireylerin İnternet Kullanım Oranı</td>
+<td style="text-align: left;">TÜİK (Hanehalkı Bilişim Teknolojileri)</td>
+<td style="text-align: left;">Yüzde (%)</td>
+<td style="text-align: left;">Bağımsız Değişken (Dijital Dönüşüm/İkame Etkisi)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Cinsiyete Göre Nüfus</td>
+<td style="text-align: left;">TÜİK (ADNKS / Nüfus Projeksiyonları)</td>
+<td style="text-align: left;">Sayısal (Yıllık)</td>
+<td style="text-align: left;">Kontrol Değişkeni (Kişi Başına Oranlama Matrisi)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="ön-işleme" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</h2>
-<p>xxxxxx</p>
+<section id="keşifsel-veri-analizi-ve-ön-işleme" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Keşifsel Veri Analizi ve Ön İşleme</h1>
+<section id="veriye-genel-bakış" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="veriye-genel-bakış"><span class="header-section-number">5.0.1</span> Veriye Genel Bakış</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sezon yılına göre tiyatro salonu, oynanan eser ve seyirci sayısı, 2000-2024</th>
+<th style="text-align: left;">…2</th>
+<th style="text-align: left;">…3</th>
+<th style="text-align: left;">…4</th>
+<th style="text-align: left;">…5</th>
+<th style="text-align: left;">…6</th>
+<th style="text-align: left;">…7</th>
+<th style="text-align: left;">…8</th>
+<th style="text-align: left;">…9</th>
+<th style="text-align: left;">…10</th>
+<th style="text-align: left;">…11</th>
+<th style="text-align: left;">…12</th>
+<th style="text-align: left;">…13</th>
+<th style="text-align: left;">…14</th>
+<th style="text-align: left;">…15</th>
+<th style="text-align: left;">…16</th>
+<th style="text-align: left;">…17</th>
+<th style="text-align: left;">…18</th>
+<th style="text-align: left;">…19</th>
+<th style="text-align: right;">…20</th>
+<th style="text-align: left;">…21</th>
+<th style="text-align: left;">…22</th>
+<th style="text-align: left;">…23</th>
+<th style="text-align: left;">…24</th>
+<th style="text-align: left;">…25</th>
+<th style="text-align: left;">…26</th>
+<th style="text-align: left;">…27</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">The number of theatre halls, shows and audiences by season year, 2000-2024</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Tiyatro salonu sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The number of theatre halls</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Telif/Çeviri - Original/Translated</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Yetişkin/Çocuk - Adult/Children</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sezon yılı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Season year</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Koltuk sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The number of seats</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Oynanan eser sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The number of shows</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Gösteri sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The number of performances</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Seyirci sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The number of audiences</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Oynanan eser sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The number of shows</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Gösteri sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The number of performances</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Seyirci sayısı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The number of audiences</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Telif</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Original</td>
+<td style="text-align: left;">Çeviri</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Translated</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Telif</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Original</td>
+<td style="text-align: left;">Çeviri</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Translated</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Telif</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Original</td>
+<td style="text-align: left;">Çeviri</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Translated</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Yetişkin</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adult</td>
+<td style="text-align: left;">Çocuk</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Children</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Yetişkin</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adult</td>
+<td style="text-align: left;">Çocuk</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Children</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Yetişkin</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adult</td>
+<td style="text-align: left;">Çocuk</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Children</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1999/’00</td>
+<td style="text-align: left;">108</td>
+<td style="text-align: left;">39906</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">735</td>
+<td style="text-align: left;">547</td>
+<td style="text-align: left;">188</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">11215</td>
+<td style="text-align: left;">7547</td>
+<td style="text-align: left;">3668</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">3746162</td>
+<td style="text-align: left;">2376066</td>
+<td style="text-align: left;">1370096</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2000/’01</td>
+<td style="text-align: left;">99</td>
+<td style="text-align: left;">36615</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">630</td>
+<td style="text-align: left;">376</td>
+<td style="text-align: left;">254</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">9254</td>
+<td style="text-align: left;">5567</td>
+<td style="text-align: left;">3687</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2570120</td>
+<td style="text-align: left;">1554886</td>
+<td style="text-align: left;">1015234</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2001/’02</td>
+<td style="text-align: left;">102</td>
+<td style="text-align: left;">40403</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">713</td>
+<td style="text-align: left;">460</td>
+<td style="text-align: left;">253</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">10271</td>
+<td style="text-align: left;">6706</td>
+<td style="text-align: left;">3565</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2634841</td>
+<td style="text-align: left;">1666463</td>
+<td style="text-align: left;">968378</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2002/’03</td>
+<td style="text-align: left;">97</td>
+<td style="text-align: left;">38253</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">898</td>
+<td style="text-align: left;">632</td>
+<td style="text-align: left;">266</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">13305</td>
+<td style="text-align: left;">9364</td>
+<td style="text-align: left;">3941</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2758206</td>
+<td style="text-align: left;">1809068</td>
+<td style="text-align: left;">949138</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2003/’04</td>
+<td style="text-align: left;">115</td>
+<td style="text-align: left;">36756</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">977</td>
+<td style="text-align: left;">674</td>
+<td style="text-align: left;">303</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">12587</td>
+<td style="text-align: left;">8813</td>
+<td style="text-align: left;">3774</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2567491</td>
+<td style="text-align: left;">1787714</td>
+<td style="text-align: left;">779777</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2004/’05</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: left;">46438</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">1177</td>
+<td style="text-align: left;">1002</td>
+<td style="text-align: left;">175</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">11453</td>
+<td style="text-align: left;">8626</td>
+<td style="text-align: left;">2827</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2716251</td>
+<td style="text-align: left;">2110523</td>
+<td style="text-align: left;">605728</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 10%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Hanehalkı tüketim harcamasının türlerine göre dağılımı, Türkiye, 2002-2024</th>
+<th style="text-align: left;">…2</th>
+<th style="text-align: left;">…3</th>
+<th style="text-align: left;">…4</th>
+<th style="text-align: left;">…5</th>
+<th style="text-align: left;">…6</th>
+<th style="text-align: left;">…7</th>
+<th style="text-align: left;">…8</th>
+<th style="text-align: left;">…9</th>
+<th style="text-align: left;">…10</th>
+<th style="text-align: left;">…11</th>
+<th style="text-align: left;">…12</th>
+<th style="text-align: left;">…13</th>
+<th style="text-align: left;">…14</th>
+<th style="text-align: left;">…15</th>
+<th style="text-align: left;">…16</th>
+<th style="text-align: left;">…17</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Distribution of household consumption expenditures, Türkiye, 2002-2024</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Tüketim harcaması türleri - Types of consumption expenditures (%)</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anket yılı Survey year</td>
+<td style="text-align: left;">Hanehalkı sayısı Number of household</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">Gıda ve alkolsüz içecekler</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Food and non-alcoholic beverages</td>
+<td style="text-align: left;">Alkollü içecekler, sigara ve tütün Alcoholic beverages, cigaratte and tobacco</td>
+<td style="text-align: left;">Giyim ve ayakkabı Clothing and footwear</td>
+<td style="text-align: left;">Konut ve kira Housing and rent</td>
+<td style="text-align: left;">Mobilya, ev aletleri ve ev bakım hizmetleri Furniture, houses appliances and home care services</td>
+<td style="text-align: left;">Sağlık</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Ulaştırma Transportation</td>
+<td style="text-align: left;">Haberleşme Communication</td>
+<td style="text-align: left;">Eğlence ve kültür Entertainment and culture</td>
+<td style="text-align: left;">Eğitim hizmetleri Educational services</td>
+<td style="text-align: left;">Lokanta ve oteller Restaurant and hotels</td>
+<td style="text-align: left;">Çeşitli mal ve hizmetler Various good and services</td>
+<td style="text-align: left;">Sigorta ve finansal hizmetler</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Insurance and financial services</td>
+<td style="text-align: left;">Kişisel bakım, sosyal koruma ve çeşitli mal ve hizmetler</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal care, social protection and miscellaneous goods and services</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2002</td>
+<td style="text-align: left;">16446644</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">26.670657052738971</td>
+<td style="text-align: left;">4.0592403342471854</td>
+<td style="text-align: left;">6.2709466966249794</td>
+<td style="text-align: left;">27.327770453341397</td>
+<td style="text-align: left;">7.2880509567412597</td>
+<td style="text-align: left;">2.3261812128233581</td>
+<td style="text-align: left;">8.6955755040030276</td>
+<td style="text-align: left;">4.5275968880824342</td>
+<td style="text-align: left;">2.4654827360897187</td>
+<td style="text-align: left;">1.3311347963410378</td>
+<td style="text-align: left;">4.4355150435928445</td>
+<td style="text-align: left;">4.6018483253736706</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2003</td>
+<td style="text-align: left;">16744495</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">27.48486762556308</td>
+<td style="text-align: left;">4.1433418439505214</td>
+<td style="text-align: left;">6.2475912398272744</td>
+<td style="text-align: left;">28.285369094077677</td>
+<td style="text-align: left;">5.7256591153059766</td>
+<td style="text-align: left;">2.2274897811219176</td>
+<td style="text-align: left;">9.7601202047984099</td>
+<td style="text-align: left;">4.295102748261904</td>
+<td style="text-align: left;">2.1974038036779087</td>
+<td style="text-align: left;">1.95637139891084</td>
+<td style="text-align: left;">4.1446719697466339</td>
+<td style="text-align: left;">3.5320111747578493</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2004</td>
+<td style="text-align: left;">17096537</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">26.423019206888849</td>
+<td style="text-align: left;">4.3255406858825829</td>
+<td style="text-align: left;">6.5178327012516384</td>
+<td style="text-align: left;">26.988290552681665</td>
+<td style="text-align: left;">6.6238042561856725</td>
+<td style="text-align: left;">2.2389317310112822</td>
+<td style="text-align: left;">9.462952250783756</td>
+<td style="text-align: left;">4.4775928085305168</td>
+<td style="text-align: left;">2.4633203054622279</td>
+<td style="text-align: left;">2.0854219437598305</td>
+<td style="text-align: left;">4.486679059314918</td>
+<td style="text-align: left;">3.9066144982469977</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2005</td>
+<td style="text-align: left;">17549020</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">24.879478224853209</td>
+<td style="text-align: left;">4.1404516022725755</td>
+<td style="text-align: left;">6.2070507495964709</td>
+<td style="text-align: left;">25.912001855739359</td>
+<td style="text-align: left;">6.7781532854158328</td>
+<td style="text-align: left;">2.2382840250593872</td>
+<td style="text-align: left;">12.606367196186469</td>
+<td style="text-align: left;">4.3182944081227186</td>
+<td style="text-align: left;">2.5440926963392156</td>
+<td style="text-align: left;">1.8695381995380733</td>
+<td style="text-align: left;">4.3817260426899685</td>
+<td style="text-align: left;">4.1245617141867239</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2006</td>
+<td style="text-align: left;">17689552</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">24.79115638117467</td>
+<td style="text-align: left;">4.0694120626135168</td>
+<td style="text-align: left;">5.8724812339391583</td>
+<td style="text-align: left;">27.166224850418491</td>
+<td style="text-align: left;">6.1992111867344262</td>
+<td style="text-align: left;">2.1808801733853205</td>
+<td style="text-align: left;">13.089675202830039</td>
+<td style="text-align: left;">4.180551544114631</td>
+<td style="text-align: left;">2.1750312964882439</td>
+<td style="text-align: left;">2.1305277969375847</td>
+<td style="text-align: left;">4.1511643055970326</td>
+<td style="text-align: left;">3.9936839611506505</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2007(1)</td>
+<td style="text-align: left;">17337894</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">23.637376812396361</td>
+<td style="text-align: left;">4.3261411054130869</td>
+<td style="text-align: left;">5.9033988965386817</td>
+<td style="text-align: left;">28.911869105673109</td>
+<td style="text-align: left;">5.8844358839657644</td>
+<td style="text-align: left;">2.3687512488499225</td>
+<td style="text-align: left;">11.111277802711331</td>
+<td style="text-align: left;">4.5245729235282663</td>
+<td style="text-align: left;">2.0860327687403912</td>
+<td style="text-align: left;">2.5060334137708136</td>
+<td style="text-align: left;">4.5315134441383718</td>
+<td style="text-align: left;">4.2085965858141572</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Cinsiyete Göre Nüfus</th>
+<th style="text-align: left;">…2</th>
+<th style="text-align: left;">…3</th>
+<th style="text-align: left;">…4</th>
+<th style="text-align: left;">…5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Yıl</td>
+<td style="text-align: left;">Düzey</td>
+<td style="text-align: left;">Toplam</td>
+<td style="text-align: left;">Erkek</td>
+<td style="text-align: left;">Kadın</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">86092168</td>
+<td style="text-align: left;">43059434</td>
+<td style="text-align: left;">43032734</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">85664944</td>
+<td style="text-align: left;">42853110</td>
+<td style="text-align: left;">42811834</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">85372377</td>
+<td style="text-align: left;">42734071</td>
+<td style="text-align: left;">42638306</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">85279553</td>
+<td style="text-align: left;">42704112</td>
+<td style="text-align: left;">42575441</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2021</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">84680273</td>
+<td style="text-align: left;">42428101</td>
+<td style="text-align: left;">42252172</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2020</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">83614362</td>
+<td style="text-align: left;">41915985</td>
+<td style="text-align: left;">41698377</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2019</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">83154997</td>
+<td style="text-align: left;">41721136</td>
+<td style="text-align: left;">41433861</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">82003882</td>
+<td style="text-align: left;">41139980</td>
+<td style="text-align: left;">40863902</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2017</td>
+<td style="text-align: left;">TÜRKİYE</td>
+<td style="text-align: left;">80810525</td>
+<td style="text-align: left;">40535135</td>
+<td style="text-align: left;">40275390</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
+<section id="veride-bulunan-sütunlardaki-na-sayısı" class="level3" data-number="5.0.2">
+<h3 data-number="5.0.2" class="anchored" data-anchor-id="veride-bulunan-sütunlardaki-na-sayısı"><span class="header-section-number">5.0.2</span> Veride bulunan Sütunlardaki NA Sayısı</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sütun İsimleri ve Eksik Veri (NA) Sayıları</caption>
+<colgroup>
+<col style="width: 46%">
+<col style="width: 46%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Sutun_Adi</th>
+<th style="text-align: right;">NA_Sayisi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sezon yılına göre tiyatro salonu, oynanan eser ve seyirci sayısı, 2000-2024</td>
+<td style="text-align: left;">Sezon yılına göre tiyatro salonu, oynanan eser ve seyirci sayısı, 2000-2024</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…2</td>
+<td style="text-align: left;">…2</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…3</td>
+<td style="text-align: left;">…3</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…4</td>
+<td style="text-align: left;">…4</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…5</td>
+<td style="text-align: left;">…5</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…6</td>
+<td style="text-align: left;">…6</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…7</td>
+<td style="text-align: left;">…7</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…8</td>
+<td style="text-align: left;">…8</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…9</td>
+<td style="text-align: left;">…9</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…10</td>
+<td style="text-align: left;">…10</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…11</td>
+<td style="text-align: left;">…11</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…12</td>
+<td style="text-align: left;">…12</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…13</td>
+<td style="text-align: left;">…13</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…14</td>
+<td style="text-align: left;">…14</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…15</td>
+<td style="text-align: left;">…15</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…16</td>
+<td style="text-align: left;">…16</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…17</td>
+<td style="text-align: left;">…17</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…18</td>
+<td style="text-align: left;">…18</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…19</td>
+<td style="text-align: left;">…19</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…20</td>
+<td style="text-align: left;">…20</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…21</td>
+<td style="text-align: left;">…21</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…22</td>
+<td style="text-align: left;">…22</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…23</td>
+<td style="text-align: left;">…23</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…24</td>
+<td style="text-align: left;">…24</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…25</td>
+<td style="text-align: left;">…25</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…26</td>
+<td style="text-align: left;">…26</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…27</td>
+<td style="text-align: left;">…27</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sütun İsimleri ve Eksik Veri (NA) Sayıları</caption>
+<colgroup>
+<col style="width: 46%">
+<col style="width: 46%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Sutun_Adi</th>
+<th style="text-align: right;">NA_Sayisi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hanehalkı tüketim harcamasının türlerine göre dağılımı, Türkiye, 2002-2024</td>
+<td style="text-align: left;">Hanehalkı tüketim harcamasının türlerine göre dağılımı, Türkiye, 2002-2024</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…2</td>
+<td style="text-align: left;">…2</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…3</td>
+<td style="text-align: left;">…3</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…4</td>
+<td style="text-align: left;">…4</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…5</td>
+<td style="text-align: left;">…5</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…6</td>
+<td style="text-align: left;">…6</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…7</td>
+<td style="text-align: left;">…7</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…8</td>
+<td style="text-align: left;">…8</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…9</td>
+<td style="text-align: left;">…9</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…10</td>
+<td style="text-align: left;">…10</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…11</td>
+<td style="text-align: left;">…11</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…12</td>
+<td style="text-align: left;">…12</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…13</td>
+<td style="text-align: left;">…13</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…14</td>
+<td style="text-align: left;">…14</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…15</td>
+<td style="text-align: left;">…15</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…16</td>
+<td style="text-align: left;">…16</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…17</td>
+<td style="text-align: left;">…17</td>
+<td style="text-align: right;">11</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sütun İsimleri ve Eksik Veri (NA) Sayıları</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Sutun_Adi</th>
+<th style="text-align: right;">NA_Sayisi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cinsiyete Göre Nüfus</td>
+<td style="text-align: left;">Cinsiyete Göre Nüfus</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…2</td>
+<td style="text-align: left;">…2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…3</td>
+<td style="text-align: left;">…3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…4</td>
+<td style="text-align: left;">…4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…5</td>
+<td style="text-align: left;">…5</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Ön işleme aşamalarında görüldüğü gibi veri içerisinde çok fazla sütun ve NA değerler bulunmakta. Bu sebeple verisetleri NA değerlerden arındırılmış ve kullanılacak sütunlar belirtilerek veri setleri tekrar oluşturulmuştur.</p>
 </section>
-<section id="analiz" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Analiz</h1>
-<p>xxxxxx</p>
-<section id="keşifsel-veri-analizi" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="keşifsel-veri-analizi"><span class="header-section-number">3.1</span> Keşifsel Veri Analizi</h2>
-<p>xxxxxx</p>
-</section>
-<section id="trend-analizi" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="trend-analizi"><span class="header-section-number">3.2</span> Trend Analizi</h2>
-<p>xxxxxx</p>
-</section>
-<section id="model-uydurma" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="model-uydurma"><span class="header-section-number">3.3</span> Model Uydurma</h2>
-<p>xxxxxx</p>
-</section>
-<section id="sonuçlar" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="sonuçlar"><span class="header-section-number">3.4</span> Sonuçlar</h2>
-<p>xxxxxx</p>
-</section>
-</section>
-<section id="sonuçlar-ve-ana-çıkarımlar" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Sonuçlar ve Ana Çıkarımlar</h1>
-<p>xxxxxx</p>
+<section id="tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri"><span class="header-section-number">5.1</span> Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="rxtaiooapt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rxtaiooapt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rxtaiooapt thead, #rxtaiooapt tbody, #rxtaiooapt tfoot, #rxtaiooapt tr, #rxtaiooapt td, #rxtaiooapt th {
+  border-style: none;
+}
+
+#rxtaiooapt p {
+  margin: 0;
+  padding: 0;
+}
+
+#rxtaiooapt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rxtaiooapt .gt_title {
+  color: #FFFFFF;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rxtaiooapt .gt_subtitle {
+  color: #FFFFFF;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rxtaiooapt .gt_heading {
+  background-color: #2C3E50;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_col_heading {
+  color: #333333;
+  background-color: #F8F9FA;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rxtaiooapt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #F8F9FA;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rxtaiooapt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rxtaiooapt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rxtaiooapt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rxtaiooapt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rxtaiooapt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rxtaiooapt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rxtaiooapt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rxtaiooapt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rxtaiooapt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #DDDDDD;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rxtaiooapt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rxtaiooapt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rxtaiooapt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rxtaiooapt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rxtaiooapt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rxtaiooapt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rxtaiooapt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rxtaiooapt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_striped {
+  background-color: #F2F4F4;
+}
+
+#rxtaiooapt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rxtaiooapt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rxtaiooapt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rxtaiooapt .gt_left {
+  text-align: left;
+}
+
+#rxtaiooapt .gt_center {
+  text-align: center;
+}
+
+#rxtaiooapt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rxtaiooapt .gt_font_normal {
+  font-weight: normal;
+}
+
+#rxtaiooapt .gt_font_bold {
+  font-weight: bold;
+}
+
+#rxtaiooapt .gt_font_italic {
+  font-style: italic;
+}
+
+#rxtaiooapt .gt_super {
+  font-size: 65%;
+}
+
+#rxtaiooapt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rxtaiooapt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rxtaiooapt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rxtaiooapt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rxtaiooapt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rxtaiooapt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rxtaiooapt .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rxtaiooapt .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rxtaiooapt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="7" class="gt_heading gt_title gt_font_normal" style="color: #FFFFFF; font-weight: bold"><strong>Tiyatro Veri Seti Özet İstatistikleri</strong></td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="color: #ECF0F1">2000-2024 Yılları Arası Genel Dağılım</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gözlem (Yıl)</th>
+<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Ortalama</th>
+<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Std. Sapma</th>
+<th id="min" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">En Düşük</th>
+<th id="median" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Medyan</th>
+<th id="max" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">En Yüksek</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<th id="stub_1_1" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Toplam_Eser</th>
+<td class="gt_row gt_right" headers="stub_1_1 n">25</td>
+<td class="gt_row gt_right" headers="stub_1_1 mean">4.569</td>
+<td class="gt_row gt_right" headers="stub_1_1 sd">3.437</td>
+<td class="gt_row gt_right" headers="stub_1_1 min">608</td>
+<td class="gt_row gt_right" headers="stub_1_1 median">4.252</td>
+<td class="gt_row gt_right" headers="stub_1_1 max">9.796</td>
+</tr>
+<tr class="even">
+<th id="stub_1_2" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Oyun_Telif</th>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 n">25</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 mean">3.817</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 sd">2.969</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 min">376</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 median">3.470</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_2 max">8.392</td>
+</tr>
+<tr class="odd">
+<th id="stub_1_3" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Oyun_Ceviri</th>
+<td class="gt_row gt_right" headers="stub_1_3 n">25</td>
+<td class="gt_row gt_right" headers="stub_1_3 mean">751</td>
+<td class="gt_row gt_right" headers="stub_1_3 sd">478</td>
+<td class="gt_row gt_right" headers="stub_1_3 min">160</td>
+<td class="gt_row gt_right" headers="stub_1_3 median">782</td>
+<td class="gt_row gt_right" headers="stub_1_3 max">1.488</td>
+</tr>
+<tr class="even">
+<th id="stub_1_4" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Toplam_Seyirci</th>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 n">25</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 mean">4.698.386</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 sd">2.042.384</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 min">714.864</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 median">5.248.226</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_4 max">8.053.186</td>
+</tr>
+<tr class="odd">
+<th id="stub_1_5" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Seyirci_Telif</th>
+<td class="gt_row gt_right" headers="stub_1_5 n">25</td>
+<td class="gt_row gt_right" headers="stub_1_5 mean">3.462.208</td>
+<td class="gt_row gt_right" headers="stub_1_5 sd">1.614.695</td>
+<td class="gt_row gt_right" headers="stub_1_5 min">541.659</td>
+<td class="gt_row gt_right" headers="stub_1_5 median">3.854.341</td>
+<td class="gt_row gt_right" headers="stub_1_5 max">5.903.438</td>
+</tr>
+<tr class="even">
+<th id="stub_1_6" class="gt_row gt_right gt_stub" data-quarto-table-cell-role="th" scope="row">Seyirci_Ceviri</th>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 n">25</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 mean">1.236.178</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 sd">466.938</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 min">173.205</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 median">1.255.391</td>
+<td class="gt_row gt_right gt_striped" headers="stub_1_6 max">2.158.041</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1a7f22a4e0463096d7c0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1a7f22a4e0463096d7c0">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; color:black; font-weight:bold; font-size:16px;\">Türkiye Geneli Tiyatro Veri Seti Detaylı İnceleme (2000-2024)<\/caption>","data":[["1999/'00","2000/'01","2001/'02","2002/'03","2003/'04","2004/'05","2005/'06","2006/'07","2007/'08","2008/'09","2009/'10","2010/'11","2011/'12","2012/'13","2013/'14","2014/'15","2015/'16","2016/'17","2017/'18","2018/'19","2019/'20","2020/'21","2021/'22","2022/'23","2023/'24 (1)"],[735,630,713,898,977,1177,608,848,2122,2217,3694,4252,5539,6219,6642,6825,7766,8948,9376,9796,6236,1665,8368,8223,9744],[547,376,460,632,674,1002,448,607,1818,1703,2918,3470,4485,5301,5631,5820,6622,7638,7969,8342,5361,1373,7112,6735,8392],[188,254,253,266,303,175,160,241,304,514,776,782,1054,918,1011,1005,1144,1310,1407,1454,875,292,1256,1488,1352],[3746162,2570120,2634841,2758206,2567491,2716251,2161537,2419262,3380214,4320729,5248226,5385588,5621066,6244821,6076128,5853445,6016762,7006410,7841353,7899547,4492293,714864,5451627,6279512,8053186],[2376066,1554886,1666463,1809068,1787714,2110523,1519852,1701291,2466373,3067727,3854341,4059860,4023018,4739078,4909012,4579412,4575551,5470095,5894114,5903438,3300768,541659,4196236,4553509,5895145],[1370096,1015234,968378,949138,779777,605728,641685,717971,913841,1253002,1393885,1325728,1598048,1505743,1167116,1274033,1441211,1536315,1947239,1996109,1191525,173205,1255391,1726003,2158041],[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Sezon<\/th>\n      <th>Toplam Oynanan Eser<\/th>\n      <th>Toplam Orijinal Eser<\/th>\n      <th>Toplam Çeviri Eser<\/th>\n      <th>Toplam Seyirci<\/th>\n      <th>Orijinal Eser Tercih Eden Seyirci<\/th>\n      <th>Çeviri Eser Tercih Eden Seyirci<\/th>\n      <th>Yıl<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"dom":"tip","language":{"url":"//cdn.datatables.net/plug-ins/1.10.25/i18n/Turkish.json"},"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 0, 3, \".\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"name":"Sezon","targets":0},{"name":"Toplam_Eser","targets":1},{"name":"Oyun_Telif","targets":2},{"name":"Oyun_Ceviri","targets":3},{"name":"Toplam_Seyirci","targets":4},{"name":"Seyirci_Telif","targets":5},{"name":"Seyirci_Ceviri","targets":6},{"name":"Yil","targets":7}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render"],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/seyirci sayısı grafiği ve pandemi etkisi-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/arz-talep-facet-grafik-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/birlesik-oran-analizi-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
