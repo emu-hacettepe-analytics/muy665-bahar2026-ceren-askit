@@ -175,7 +175,7 @@
     "href": "proje.html#tiyatro-salonlarında-oynanan-eserler-ve-seyirci-sayısı-verileri",
     "title": "Proje X (proje adını yazınız)",
     "section": "5.1 Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri",
-    "text": "5.1 Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri\n\n\n\n\n\n\n\n\nTiyatro Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n4.569\n3.437\n608\n4.252\n9.796\n\n\nOyun_Telif\n25\n3.817\n2.969\n376\n3.470\n8.392\n\n\nOyun_Ceviri\n25\n751\n478\n160\n782\n1.488\n\n\nToplam_Seyirci\n25\n4.698.386\n2.042.384\n714.864\n5.248.226\n8.053.186\n\n\nSeyirci_Telif\n25\n3.462.208\n1.614.695\n541.659\n3.854.341\n5.903.438\n\n\nSeyirci_Ceviri\n25\n1.236.178\n466.938\n173.205\n1.255.391\n2.158.041"
+    "text": "5.1 Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri\n\n\n\n\n\n\n\n\nTiyatro Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n4.569\n3.437\n608\n4.252\n9.796\n\n\nOyun_Telif\n25\n3.817\n2.969\n376\n3.470\n8.392\n\n\nOyun_Ceviri\n25\n751\n478\n160\n782\n1.488\n\n\nToplam_Seyirci\n25\n4.698.386\n2.042.384\n714.864\n5.248.226\n8.053.186\n\n\nSeyirci_Telif\n25\n3.462.208\n1.614.695\n541.659\n3.854.341\n5.903.438\n\n\nSeyirci_Ceviri\n25\n1.236.178\n466.938\n173.205\n1.255.391\n2.158.041\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpera ve Bale Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n172\n49\n84\n188\n251\n\n\nYerli_Eser\n25\n81\n35\n20\n84\n143\n\n\nYabancı_Eser\n25\n91\n25\n51\n90\n136\n\n\nToplam_Seyirci\n25\n290.520\n97.200\n14.032\n281.069\n457.717\n\n\nYerliEser_Seyirci\n25\n110.845\n49.633\n6.682\n115.469\n220.172\n\n\nYabancıEser_Seyirci\n25\n179.675\n79.726\n7.350\n173.217\n426.051\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSinema Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Film\n25\n38.864\n14.529\n21.254\n35.999\n68.386\n\n\nYerli_Film\n25\n14.508\n8.788\n3.302\n12.885\n30.145\n\n\nYabancı_Film\n25\n24.356\n6.108\n14.982\n23.114\n39.322\n\n\nToplam_Seyirci\n25\n34.039.420\n17.210.140\n12.418.777\n31.334.447\n68.482.526\n\n\nYerliFilm_Seyirci\n25\n16.887.844\n11.452.565\n2.079.671\n16.166.153\n39.195.881\n\n\nYabancıFilm_Seyirci\n25\n17.151.576\n6.308.873\n3.971.103\n16.114.198\n30.578.435"
   },
   {
     "objectID": "takim/cerenaskit.html#employementsçalışan",
@@ -204,5 +204,68 @@
     "title": "About Me/Hakkımda",
     "section": "Internships/Stajyer",
     "text": "Internships/Stajyer\n\nBITES Defence and Aerospace, GIS Software, Aug 2021 - Sep 2021\nBİTES Savunma ve Havacılık, CBS Yazılım, Ağustos 2021 - Eylül 2021"
+  },
+  {
+    "objectID": "takim/esingul.html",
+    "href": "takim/esingul.html",
+    "title": "Esin Gül",
+    "section": "",
+    "text": "CV\n\nEğitim\n\nB.S., Elektronik ve Haberleşme Mühendisliği, Çankaya Üniversitesi, 2010-2015.\nM.Sc., Nanoteknoloji ve Nanotıp, Hacettepe Üniversitesi, 2016-2019.\nM.Sc., Mühendislik Yönetimi, Hacettepe Üniversitesi, 2025-…\n\n\n\nİş Tecrübesi\n\nODTÜ MEMS Merkezi, Araştırmacı (2019-2024).\nHacettepe Üniversitesi Elektrik Elektronik Mühendisliği, Lisansüstü Proje Asistanı (2018-2019).\n\n\n\nStajlar\n\nTUSAŞ, 2012.\nTRT, 2013.\n\n\n\nYayınlar\n\nE. Gul & D. Gokcen, “Active Memristive Layer Deposition via Mn(II)-Assisted Anodic Oxidation of Titanium”, ECS Journal of Solid State Science and Technology, vol. 9, no. 5, 2020.\n\nDOI: 10.1149/2162-8777/ab9519\n\n\nMesleki Beceriler\n\nTemiz Alan Mikrofabrikasyon ve Karakterizasyon\nMatlab, Comsol, Origin\n\n\n\nHobiler\nYağlıboya, Puzzle, Dans\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "takim/pakizehergulkaya.html",
+    "href": "takim/pakizehergulkaya.html",
+    "title": "Pakize Hergül Kaya",
+    "section": "",
+    "text": "Eğitim\n\nYüksek Lisans - Hacettepe Üniversitesi - Mühendislik Yönetimi\nLisans - Kırıkkale Üniversitesi - Bilgisayar Mühendisliği Bölümü\nLise - Çağlayan Anadolu Lisesi\n\n\n\nİş Tecrübesi\n\nBites Defence / Aselsan Akyurt Yerleşkesi - Aviyonik Yazılım Test Uzmanı &gt;2026\nTaskin Logistics - Yazılım Uzmanı &gt; 2022\n\n\n\nStaj\n\nTürk Telekom - Stajyer - 2018\nBaşarsoft - Stajyer - 2017\n\n\n\nSertifikalar\n\nISTQB Foundation Level\n\n📄 CV’mi görüntüle\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "takim/baranbalci.html",
+    "href": "takim/baranbalci.html",
+    "title": "Baran Balcı",
+    "section": "",
+    "text": "Özet\nTürksat Mobil Evrensel Hizmet Projesi kapsamında proje planlama, saha uygulamaları ve yüklenici yönetimi süreçlerinde görev yapan bir mühendis olarak çalışmaktayım. Proje süreçlerinde kalite, zaman ve maliyet odaklı bir yaklaşım benimseyerek paydaş koordinasyonu ve veri odaklı raporlama alanlarında deneyim kazandım. Aynı zamanda Hacettepe Üniversitesi Mühendislik Yönetimi yüksek lisans programında öğrenim görmekteyim.\n\n\nEğitim\n\nB.S., Mechanical Engineering, Kastamonu University, Turkey, 2015 - 2020.\nM.S., Engineering Management, Hacettepe University, Turkey, 2026 - Present.\n\n\n\nİş Tecrübesi\n\nTürksat Uydu Haberleşme ve Kablo TV İşletme A.Ş., Project&Site Engineer, 2022- Present.\n\n\n\nStajlar\n\nDoğanlar Çelik Dövme San. Tic. A.Ş., Intern, 2019.\nTEKSAN Hidrolik Rakor Ltd. Şti., Intern, 2017.\n\n\n\nProjeler\nLisans Bitirme Projesi: Otomobillerde kullanılan çarpışma kutularının farklı geometrik konfigürasyonlar altında enerji sönümleme performanslarının karşılaştırılması.\nLS-DYNA ortamında oluşturulan sonlu eleman modelleri üzerinde dinamik yükleme senaryoları tanımlanmış; deformasyon modları, enerji emilimi ve yapısal davranışlar analiz edilmiştir. Elde edilen sonuçlar doğrultusunda, basit ve düzenli geometrilerin (silindirik ve prizmatik yapılar) karmaşık geometrilere kıyasla daha yüksek ve kararlı enerji sönümleme performansı sağladığı gösterilmiştir.\n\n\nSertifikalar\n• Solidworks/Solidcam, Özel Vektörel Bilişim Bilgisayar Kursu, 23/12/2017\n• Geometrik Boyutlandırma ve Toleranslandırma, Udemy, 02/02/2021\n• ULAK Sistemleri Eğitimi, ULAK Haberleşme, 15/12/2023\n• Universal Network GSM and LTE Training, Huawei, 12/12/2023\n• IP Network Topology, Product Solution and Satellite Transmission Solution, Huawei, 28/11/2023\n• General MS Activities and MS Operations, Huawei, 14/12/2023\n• IP Microwave Training, Huawei, 30/11/2023\n• Project Management and PMP Exam Preparation, CPM Group Proje ve Ürün Yönetimi, 27/05/2023\n• Implementing and Administering Cisco Solutions (CCNA) v2.1, Knowledge Club, 23/11/2024\n\n\nYetkinlikler\n• Microsoft Office\n• Autocad\n• İngilizce\n• Mathcad\n• Solidworks\n• Almanca\n• CATIA\n\n\nHobiler\n• Basketbol\n• Kamp\n• Trekking\n  CV’yi İndir \n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "proje.html#verilerin-özet-istatiksel-değer-tabloları",
+    "href": "proje.html#verilerin-özet-istatiksel-değer-tabloları",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.1 Verilerin Özet İstatiksel Değer Tabloları",
+    "text": "5.1 Verilerin Özet İstatiksel Değer Tabloları\n\n\n\n\n\n\n\n\nTiyatro Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n4.569\n3.437\n608\n4.252\n9.796\n\n\nOyun_Telif\n25\n3.817\n2.969\n376\n3.470\n8.392\n\n\nOyun_Ceviri\n25\n751\n478\n160\n782\n1.488\n\n\nToplam_Seyirci\n25\n4.698.386\n2.042.384\n714.864\n5.248.226\n8.053.186\n\n\nSeyirci_Telif\n25\n3.462.208\n1.614.695\n541.659\n3.854.341\n5.903.438\n\n\nSeyirci_Ceviri\n25\n1.236.178\n466.938\n173.205\n1.255.391\n2.158.041\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpera ve Bale Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n172\n49\n84\n188\n251\n\n\nYerli_Eser\n25\n81\n35\n20\n84\n143\n\n\nYabancı_Eser\n25\n91\n25\n51\n90\n136\n\n\nToplam_Seyirci\n25\n290.520\n97.200\n14.032\n281.069\n457.717\n\n\nYerliEser_Seyirci\n25\n110.845\n49.633\n6.682\n115.469\n220.172\n\n\nYabancıEser_Seyirci\n25\n179.675\n79.726\n7.350\n173.217\n426.051\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSinema Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Film\n25\n38.864\n14.529\n21.254\n35.999\n68.386\n\n\nYerli_Film\n25\n14.508\n8.788\n3.302\n12.885\n30.145\n\n\nYabancı_Film\n25\n24.356\n6.108\n14.982\n23.114\n39.322\n\n\nToplam_Seyirci\n25\n34.039.420\n17.210.140\n12.418.777\n31.334.447\n68.482.526\n\n\nYerliFilm_Seyirci\n25\n16.887.844\n11.452.565\n2.079.671\n16.166.153\n39.195.881\n\n\nYabancıFilm_Seyirci\n25\n17.151.576\n6.308.873\n3.971.103\n16.114.198\n30.578.435"
+  },
+  {
+    "objectID": "proje.html#veri-setinin-kullanılacak-sütunların-ayrıştırılmış-halleri",
+    "href": "proje.html#veri-setinin-kullanılacak-sütunların-ayrıştırılmış-halleri",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.2 Veri setinin kullanılacak sütunların ayrıştırılmış halleri",
+    "text": "5.2 Veri setinin kullanılacak sütunların ayrıştırılmış halleri"
+  },
+  {
+    "objectID": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yıllar-içerisindeki-değişimi",
+    "href": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yıllar-içerisindeki-değişimi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.3 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi",
+    "text": "5.3 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi"
+  },
+  {
+    "objectID": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yerliyabancı-tercihleri",
+    "href": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yerliyabancı-tercihleri",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.4 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri",
+    "text": "5.4 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri"
+  },
+  {
+    "objectID": "proje.html#nüfustaki-artışa-göre-eğlence-kültür-alanına-yapılan-harcama-indeksi",
+    "href": "proje.html#nüfustaki-artışa-göre-eğlence-kültür-alanına-yapılan-harcama-indeksi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.5 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi",
+    "text": "5.5 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi"
+  },
+  {
+    "objectID": "proje.html#eğlence-kültür-harcama-indeksinin-sanat-dalları-ile-kıyaslaması-regresyon-modeli-analizi",
+    "href": "proje.html#eğlence-kültür-harcama-indeksinin-sanat-dalları-ile-kıyaslaması-regresyon-modeli-analizi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "5.6 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)",
+    "text": "5.6 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)"
   }
 ]

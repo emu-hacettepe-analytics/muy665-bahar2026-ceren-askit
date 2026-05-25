@@ -13,6 +13,8 @@ library(tidyverse)
 library(knitr)
 library(DT)
 library(ggtext)
+library(ggrepel)
+library(ggh4x)
 library(scales)
 library(zoo)
 library(tsibble)
@@ -24,6 +26,10 @@ library(psych)
 # Proje Ekip Üyeleri
 
 [Ceren Aşkit](takim/cerenaskit.qmd){.download-button}
+[Pakize Hergül Kaya](takim/pakizehergulkaya.qmd){.download-button}
+[Esin Gül](takim/esingul.qmd){.download-button}
+[Baran Balcı](takim/baranbalci.qmd){.download-button}
+
 
 # Proje Genel Bakış ve Kapsamı
 
@@ -85,7 +91,13 @@ tiyatro_pure <- read_excel("data/SezonYılınaGoreTiyatroSalonuOynananEserveSeyi
 
 hanehalkı_tüketim <- read_excel("data/HanehalkıTuketimHarcamasınınTurlerineGoreDagılımı.xlsx")
 
-nüfus <- read_excel("data/CinsiyeteGoreNufus.xlsx",)
+nüfus <- read_excel("data/CinsiyeteGoreNufus.xlsx")
+
+opera_pure <- read_excel("data/OperaveBaleSalonuKoltukOynananEserveSeyirciSayısı.xlsx")
+
+sinema_pure <- read_excel("data/SinemaGosterilenFilmveSeyirciSayısı.xlsx")
+
+internet_kullanim <- read_excel("data/CinsiyeteGoreBireylerinİnternetKullanımOranı.xlsx")
 
 ```
 
@@ -95,9 +107,13 @@ nüfus <- read_excel("data/CinsiyeteGoreNufus.xlsx",)
 
 ```{r, echo=FALSE}
 
-knitr::kable(tiyatro_pure[1:10, ])
-knitr::kable(hanehalkı_tüketim[1:10, ])
-knitr::kable(nüfus[1:10, ])
+knitr::kable(tiyatro_pure[1:5, ])
+knitr::kable(hanehalkı_tüketim[1:5, ])
+knitr::kable(nüfus[1:5, ])
+knitr::kable(opera_pure[1:5, ])
+knitr::kable(sinema_pure[1:5, ])
+knitr::kable(internet_kullanim[1:5, ])
+
 
 ```
 ### Veride bulunan Sütunlardaki NA Sayısı
@@ -105,26 +121,47 @@ knitr::kable(nüfus[1:10, ])
 
 ```{r, echo=FALSE}
 
+#tiyatro
 tiyatro_ozet <- data.frame(
   Sutun_Adi = colnames(tiyatro_pure),
   NA_Sayisi = colSums(is.na(tiyatro_pure))
 )
-# 2. Sonucu raporda şık bir tablo olarak göster
 knitr::kable(tiyatro_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
+#opera
+opera_ozet <- data.frame(
+  Sutun_Adi = colnames(opera_pure),
+  NA_Sayisi = colSums(is.na(opera_pure))
+)
+knitr::kable(opera_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
+#sinema
+sinema_ozet <- data.frame(
+  Sutun_Adi = colnames(sinema_pure),
+  NA_Sayisi = colSums(is.na(sinema_pure))
+)
+knitr::kable(sinema_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
+
+
+#hanehalkı
 hanehalkı_ozet <- data.frame(
   Sutun_Adi = colnames(hanehalkı_tüketim),
   NA_Sayisi = colSums(is.na(hanehalkı_tüketim))
 )
-# 2. Sonucu raporda şık bir tablo olarak göster
 knitr::kable(hanehalkı_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
+#internet kullanım
+internet_ozet <- data.frame(
+  Sutun_Adi = colnames(internet_kullanim),
+  NA_Sayisi = colSums(is.na(internet_kullanim))
+)
+knitr::kable(internet_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
+
+#nüfus
 nüfus_ozet <- data.frame(
   Sutun_Adi = colnames(nüfus),
   NA_Sayisi = colSums(is.na(nüfus))
 )
-# 2. Sonucu raporda şık bir tablo olarak göster
 knitr::kable(nüfus_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
 
@@ -132,7 +169,7 @@ knitr::kable(nüfus_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıla
 
 Ön işleme aşamalarında görüldüğü gibi veri içerisinde çok fazla sütun ve NA değerler bulunmakta. Bu sebeple verisetleri NA değerlerden arındırılmış ve kullanılacak sütunlar belirtilerek veri setleri tekrar oluşturulmuştur.
 
-## Tiyatro Salonlarında Oynanan Eserler ve Seyirci sayısı Verileri
+## Verilerin Özet İstatiksel Değer Tabloları
 
 ```{r tiyatro verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -161,7 +198,102 @@ tiyatro_clean <- tiyatro_pure %>%
   ) 
 ```
 
-```{r, echo=FALSE}
+
+```{r opera verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
+
+opera_clean <- opera_pure %>%
+  select(
+    Sezon = 1,
+    Toplam_Eser = 5, 
+    Yerli_Eser = 6,
+    Yabancı_Eser = 7,
+    Toplam_Seyirci = 9, 
+    YerliEser_Seyirci = 10,
+    YabancıEser_Seyirci = 11
+  ) %>%
+  filter(!is.na(Toplam_Seyirci), !is.na(Sezon), !is.na(Toplam_Eser), !is.na(Yerli_Eser), !is.na(Yabancı_Eser), !is.na(YerliEser_Seyirci), !is.na(YabancıEser_Seyirci) ) %>%
+  filter(str_detect(Sezon, "1999|20[0-9]{2}")) %>%
+  
+  mutate(
+    Toplam_Seyirci = as.numeric(str_remove_all(Toplam_Seyirci, "[\\.\\s]")),
+    Toplam_Eser    = as.numeric(str_remove_all(Toplam_Eser, "[\\.\\s]")),
+    Yerli_Eser     = as.numeric(str_remove_all(Yerli_Eser, "[\\.\\s]")),
+    Yabancı_Eser    = as.numeric(str_remove_all(Yabancı_Eser, "[\\.\\s]")),
+    YerliEser_Seyirci  = as.numeric(str_remove_all(YerliEser_Seyirci, "[\\.\\s]")),
+    YabancıEser_Seyirci = as.numeric(str_remove_all(YabancıEser_Seyirci, "[\\.\\s]")),
+    
+    Yil = 2000:2024
+  )
+
+```
+
+
+```{r sinema verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
+
+sinema_clean <- sinema_pure %>%
+  select(
+    Yil = 1,
+    Toplam_Film = 5, 
+    Yerli_Film = 6,
+    Yabancı_Film = 7,
+    Toplam_Seyirci = 9, 
+    YerliFilm_Seyirci = 10,
+    YabancıFilm_Seyirci = 11
+  ) %>%
+  filter(!is.na(Toplam_Seyirci), !is.na(Yil),) %>%
+  filter(str_detect(Yil, "1999|20[0-9]{2}")) %>%
+  
+  mutate(
+    Toplam_Seyirci = as.numeric(str_remove_all(Toplam_Seyirci, "[\\.\\s]")),
+    Toplam_Film    = as.numeric(str_remove_all(Toplam_Film, "[\\.\\s]")),
+    Yerli_Film     = as.numeric(str_remove_all(Yerli_Film, "[\\.\\s]")),
+    Yabancı_Film    = as.numeric(str_remove_all(Yabancı_Film, "[\\.\\s]")),
+    YerliFilm_Seyirci  = as.numeric(str_remove_all(YerliFilm_Seyirci, "[\\.\\s]")),
+    YabancıFilm_Seyirci = as.numeric(str_remove_all(YabancıFilm_Seyirci, "[\\.\\s]")),
+    
+    Yil = 2000:2024
+  ) %>%
+  filter(Yil >= 2000 & Yil <= 2024) 
+
+# 2. ADIM: 2022 Yılı Çift Verilerinin Ortalamasını Alma
+# (Eğer sinema verisinde mükerrer yıl varsa ortalar, yoksa yapıyı bozmadan devam eder)
+sinema_ortalanmis <- sinema_clean %>%
+  group_by(Yil) %>%
+  summarise(across(everything(), mean, na.rm = TRUE), .groups = "drop") %>%
+  mutate(across(-Yil, round))  # Film ve seyirci sayılarını tam sayıya yuvarlar
+
+# 3. ADIM: Eksik Yılları Açma ve İnterpolasyon ile Doldurma
+# (Bu aşamada seri 2022'de biter, interpolasyon ara yılları doldurur)
+sinema_interpolasyon <- sinema_ortalanmis %>%
+  complete(Yil = min(Yil):max(Yil)) %>%
+  filter(Yil <= 2022)
+
+# 4. ADIM: EKLENEN BIND_ROWS KISMI - 2023 ve 2024 Yıllarını Tablonun Üstüne Ekleme
+# Görselde yer alan elinizdeki güncel seyirci sayılarını buraya giriyoruz
+gelecek_yillar <- tibble(
+  Yil                 = c(2023, 2024),
+  Toplam_Film         = c(NA_real_, NA_real_), 
+  Yerli_Film          = c(NA_real_, NA_real_),
+  Yabancı_Film        = c(NA_real_, NA_real_),
+  Toplam_Seyirci      = c(31005844, 32538289),
+  YerliFilm_Seyirci   = c(13716005, 18469778),
+  YabancıFilm_Seyirci = c(17289839, 14068511)
+) 
+
+# Tabloları birleştirip sıralıyoruz ve serinin sonundaki boş film sayılarını tamamlıyoruz
+sinema_tamamlanmis <- bind_rows(sinema_interpolasyon, gelecek_yillar) %>%
+  arrange(Yil) %>%
+  mutate(
+    Toplam_Film  = round(na.approx(Toplam_Film, rule = 2)),
+    Yerli_Film   = round(na.approx(Yerli_Film, rule = 2)),
+    Yabancı_Film = round(na.approx(Yabancı_Film, rule = 2))
+  )
+
+
+```
+
+
+```{r tiyatro-veri-ozet, echo=FALSE}
 
 tiyatro_clean %>%
   select(-Yil) %>% 
@@ -174,6 +306,156 @@ tiyatro_clean %>%
   # 1. Başlık ve Alt Başlık Tanımlama
   tab_header(
     title = md("**Tiyatro Veri Seti Özet İstatistikleri**"),
+    subtitle = "2000-2024 Yılları Arası Genel Dağılım"
+  ) %>%
+  
+  # 2. HATA ÇÖZÜMÜ: Başlık Yazı Renklerini Ayarlama (tab_style ile)
+  tab_style(
+    style = cell_text(color = "white", weight = "bold"),
+    locations = cells_title(groups = "title")
+  ) %>%
+  tab_style(
+    style = cell_text(color = "#ecf0f1"),
+    locations = cells_title(groups = "subtitle")
+  ) %>%
+  
+  # 3. Sütun İsimlerini Türkçeleştirme
+  cols_label(
+    n = "Gözlem (Yıl)",
+    mean = "Ortalama",
+    sd = "Std. Sapma",
+    min = "En Düşük",
+    median = "Medyan",
+    max = "En Yüksek"
+  ) %>%
+  
+  # 4. Sayı Formatı (Binlik Ayraç Nokta, Ondalık Virgül)
+  fmt_number(
+    columns = everything(), 
+    decimals = 0, 
+    use_seps = TRUE, 
+    sep_mark = ".", 
+    dec_mark = ","
+  ) %>%
+  
+  # 5. Genel Tablo Tasarımı ve Arka Plan Renkleri
+  tab_options(
+    # Başlık arka plan rengi (Hata veren yazı renkleri buradan kaldırıldı)
+    heading.background.color = "#2c3e50",
+    
+    # Sütun başlıkları alanı
+    column_labels.background.color = "#f8f9fa",
+    column_labels.font.weight = "bold",
+    
+    # Satır çizgileri ve zebra deseni
+    row.striping.include_table_body = TRUE,
+    row.striping.background_color = "#f2f4f4",
+    
+    # Çizgiler ve genişlik ayarları
+    table.border.top.color = "black",
+    table.border.bottom.color = "black",
+    table_body.hlines.color = "#dddddd",
+    
+    # Yazı boyutu ve satır ferahlığı
+    table.font.size = px(14),
+    data_row.padding = px(8)
+  ) %>%
+  
+  # 6. Sağ Hizalama
+  cols_align(
+    align = "right",
+    columns = everything()
+  )
+
+```
+
+```{r opera-veri-ozet, echo=FALSE}
+opera_clean %>%
+  select(-Yil) %>% 
+  select(where(is.numeric)) %>%
+  psych::describe() %>% 
+  as.data.frame() %>%
+  select(n, mean, sd, min, median, max) %>%
+  gt(rownames_to_stub = TRUE) %>%
+  
+  # 1. Başlık ve Alt Başlık Tanımlama
+  tab_header(
+    title = md("**Opera ve Bale Veri Seti Özet İstatistikleri**"),
+    subtitle = "2000-2024 Yılları Arası Genel Dağılım"
+  ) %>%
+  
+  # 2. HATA ÇÖZÜMÜ: Başlık Yazı Renklerini Ayarlama (tab_style ile)
+  tab_style(
+    style = cell_text(color = "white", weight = "bold"),
+    locations = cells_title(groups = "title")
+  ) %>%
+  tab_style(
+    style = cell_text(color = "#ecf0f1"),
+    locations = cells_title(groups = "subtitle")
+  ) %>%
+  
+  # 3. Sütun İsimlerini Türkçeleştirme
+  cols_label(
+    n = "Gözlem (Yıl)",
+    mean = "Ortalama",
+    sd = "Std. Sapma",
+    min = "En Düşük",
+    median = "Medyan",
+    max = "En Yüksek"
+  ) %>%
+  
+  # 4. Sayı Formatı (Binlik Ayraç Nokta, Ondalık Virgül)
+  fmt_number(
+    columns = everything(), 
+    decimals = 0, 
+    use_seps = TRUE, 
+    sep_mark = ".", 
+    dec_mark = ","
+  ) %>%
+  
+  # 5. Genel Tablo Tasarımı ve Arka Plan Renkleri
+  tab_options(
+    # Başlık arka plan rengi (Hata veren yazı renkleri buradan kaldırıldı)
+    heading.background.color = "#2c3e50",
+    
+    # Sütun başlıkları alanı
+    column_labels.background.color = "#f8f9fa",
+    column_labels.font.weight = "bold",
+    
+    # Satır çizgileri ve zebra deseni
+    row.striping.include_table_body = TRUE,
+    row.striping.background_color = "#f2f4f4",
+    
+    # Çizgiler ve genişlik ayarları
+    table.border.top.color = "black",
+    table.border.bottom.color = "black",
+    table_body.hlines.color = "#dddddd",
+    
+    # Yazı boyutu ve satır ferahlığı
+    table.font.size = px(14),
+    data_row.padding = px(8)
+  ) %>%
+  
+  # 6. Sağ Hizalama
+  cols_align(
+    align = "right",
+    columns = everything()
+  )
+
+```
+
+```{r sinema-veri-ozet, echo=FALSE}
+sinema_tamamlanmis %>%
+  select(-Yil) %>% 
+  select(where(is.numeric)) %>%
+  psych::describe() %>% 
+  as.data.frame() %>%
+  select(n, mean, sd, min, median, max) %>%
+  gt(rownames_to_stub = TRUE) %>%
+  
+  # 1. Başlık ve Alt Başlık Tanımlama
+  tab_header(
+    title = md("**Sinema Veri Seti Özet İstatistikleri**"),
     subtitle = "2000-2024 Yılları Arası Genel Dağılım"
   ) %>%
   
@@ -250,8 +532,24 @@ hanehalkı_clean <- hanehalkı_tüketim %>%
   ) %>%
   filter(Yil >= 2002 & Yil <= 2024)
 
-# 2002 değerini yakalayıp 2000-2001 yılları için kopyalıyoruz
-oran_2002 <- hanehalkı_clean %>% filter(Yil == 2002) %>% pull(Eglence_Kultur_Oran)
+# 2. ADIM: EKLENEN KISIM - 2022 Yılı Çift Verilerinin Ortalamasını Alma
+# Yıllara göre gruplayarak mükerrer olan 2022'leri tek satıra düşürüyoruz.
+hanehalkı_ortalanmis <- hanehalkı_clean %>%
+  group_by(Yil) %>%
+  summarise(Eglence_Kultur_Oran = mean(Eglence_Kultur_Oran, na.rm = TRUE), .groups = "drop") %>%
+  mutate(Eglence_Kultur_Oran = round(Eglence_Kultur_Oran, digits = 2)) # Ortalama sonrası virgülden sonrasını yuvarlıyoruz
+
+
+# 3. ADIM: EKLENEN KISIM - 2020 ve 2021 Yıllarını Açma ve İnterpolasyon ile Doldurma
+hanehalkı_interpolasyon <- hanehalkı_ortalanmis %>%
+  complete(Yil = min(Yil):max(Yil)) %>% # 2002 ile 2024 arasındaki tüm yılları (2020-2021 dahil) oluşturur
+  mutate(Eglence_Kultur_Oran = na.approx(Eglence_Kultur_Oran, na.rm = FALSE)) %>% # Boşlukları doğrusal doldurur
+  mutate(Eglence_Kultur_Oran = round(Eglence_Kultur_Oran, digits = 2)) # Çıkan sonuçları yuvarlıyoruz
+
+
+# 4. ADIM: Sizin yazdığınız 2000-2001 yıllarını geriye dönük kopyalama mantığı
+# (Artık hanehalkı_interpolasyon tablosu üzerinden 2002 değerini çekiyoruz)
+oran_2002 <- hanehalkı_interpolasyon %>% filter(Yil == 2002) %>% pull(Eglence_Kultur_Oran)
 
 gecmis_yillar <- tibble(
   Yil = c(2000, 2001),
@@ -259,7 +557,7 @@ gecmis_yillar <- tibble(
 )
 
 # Eksik yılları ana tüketim tablosunun üstüne ekliyoruz
-hanehalkı_tamamlanmis <- bind_rows(gecmis_yillar, hanehalkı_clean) %>% arrange(Yil)
+hanehalkı_tamamlanmis <- bind_rows(gecmis_yillar, hanehalkı_interpolasyon) %>% arrange(Yil)
 
 ```
 
@@ -276,6 +574,8 @@ turkiye_nüfus <- nüfus %>%
   # Açılan bu boş satırlardaki (NA) nüfus değerlerini doğrusal olarak doldurur
   mutate(Nufus = na.approx(Nufus))
 ```
+
+## Veri setinin kullanılacak sütunların ayrıştırılmış halleri
 
 ```{r tiyatro-veri-tablosu-temizlenmis, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -312,203 +612,533 @@ datatable(
 
 ```
 
-```{r seyirci sayısı grafiği ve pandemi etkisi, fig.width=10, fig.height=5.5, message=FALSE, warning=FALSE, echo=FALSE}
-# Pandemi dip noktasını otomatik bulalım (Grafikte işaretlemek için)
-pandemi_noktasi <- tiyatro_clean %>% filter(Yil == 2021)
 
-ggplot(tiyatro_clean, aes(x = Yil, y = Toplam_Seyirci)) +
-  # Çizginin altına modern bir gölge efekti (Alanı boyama)
-  geom_area(fill = "#3182bd", alpha = 0.15) +
-  # Ana trend çizgisi (Daha kalın ve kurumsal mavi)
-  geom_line(color = "#1f77b4", size = 1.5) +
-  # Veri noktaları
-  geom_point(color = "#1f77b4", size = 3, fill = "white", shape = 21, stroke = 1.5) +
+```{r opera-veri-tablosu-temizlenmis, message=FALSE, warning=FALSE, echo=FALSE}
+sutun_isimleri <- c(
+  "Sezon", 
+  "Toplam Oynanan Eser", 
+  "Toplam Yerli Eser", 
+  "Toplam Yabancı Eser", 
+  "Toplam Seyirci",
+  "Yerli Eser Tercih Eden Seyirci", 
+  "Yabancı Eser Tercih Eden Seyirci", 
+  "Yıl"
+)
+
+datatable(
+  opera_clean,
+  options = list(
+    pageLength = 5, 
+    dom = 'tip', 
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.25/i18n/Turkish.json')
+  ),
+  colnames = sutun_isimleri,
+  rownames = FALSE,
+  caption = htmltools::tags$caption(
+    style = 'caption-side: top; text-align: left; color:black; font-weight:bold; font-size:16px;',
+    'Türkiye Geneli Opera ve Bale Veri Seti Detaylı İnceleme (2000-2024)'
+  )
+) %>%
+  formatRound(
+    c('Toplam_Eser', 'Yerli_Eser', 'Yabancı_Eser', 'Toplam_Seyirci', 'YerliEser_Seyirci', 'YabancıEser_Seyirci'),
+    digits = 0, 
+    mark = "."
+  )
+
+```
+
+
+```{r sinema-veri-tablosu-temizlenmis, message=FALSE, warning=FALSE, echo=FALSE}
+sutun_isimleri <- c(
+  "Yıl",
+  "Toplam Gösterilen Film", 
+  "Toplam Yerli Film", 
+  "Toplam Yabancı Film", 
+  "Toplam Seyirci",
+  "Yerli Film Tercih Eden Seyirci", 
+  "Yabancı Film Tercih Eden Seyirci"
+)
+
+datatable(
+  sinema_tamamlanmis,
+  options = list(
+    pageLength = 5, 
+    dom = 'tip', 
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.25/i18n/Turkish.json')
+  ),
+  colnames = sutun_isimleri,
+  rownames = FALSE,
+  caption = htmltools::tags$caption(
+    style = 'caption-side: top; text-align: left; color:black; font-weight:bold; font-size:16px;',
+    'Türkiye Geneli Sinema Gösterimi Veri Seti Detaylı İnceleme (2000-2024)'
+  )
+) %>%
+  formatRound(
+    c('Toplam_Film', 'Yerli_Film', 'Yabancı_Film', 'Toplam_Seyirci', 'YerliFilm_Seyirci', 'YabancıFilm_Seyirci'),
+    digits = 0, 
+    mark = "."
+  )
+
+```
+
+## Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi
+
+```{r tiyatro-opera-sinema-seyirci-pandemi-etkisi, fig.width=12, fig.height=12, message=FALSE, warning=FALSE, echo=FALSE }
+# Sadece ortak olan 'Yil' ve 'Toplam_Seyirci' sütunlarını çekiyoruz.
+tiyatro_secenek <- tiyatro_clean %>% select(Yil, Toplam_Seyirci) %>% mutate(Kategori = "Tiyatro")
+sinema_secenek  <- sinema_tamamlanmis %>% select(Yil, Toplam_Seyirci) %>% mutate(Kategori = "Sinema")
+opera_secenek   <- opera_clean %>% select(Yil, Toplam_Seyirci) %>% mutate(Kategori = "Opera & Bale")
+
+# 3 Veriyi alt alta birleştiriyoruz
+sanat_birlesik <- bind_rows(tiyatro_secenek, sinema_secenek, opera_secenek) %>%
+  filter(Yil >= 2000 & Yil <= 2024)
+
+# Her kategorinin kendi içindeki 2021 pandemi dip noktalarını otomatik yakalıyoruz
+pandemi_noktalari <- sanat_birlesik %>% 
+  filter(Yil == 2021)
+
+# 1. ADIM: Her panel için kırmızı halkanın yanına gelecek özel metinleri tanımlıyoruz
+pandemi_etiketleri <- data.frame(
+  Yil = c(2021, 2021, 2021),
+  Kategori = c("Sinema", "Tiyatro", "Opera & Bale"),
+  # Her kategori için grafikte görünecek özel etiket metinleri
+  Metin = c("Pandemi Etkisi\n(2 Milyon Seyirci)", 
+            "Pandemi Etkisi\n(714 Bin Seyirci)", 
+            "Pandemi Etkisi\n(45 Bin Seyirci)"),
+  # Yazıların çöküş noktasına çarpmaması için her panele özel Y koordinat yükseklikleri
+  # Not: Eğer yazı çizgilerin altında/üstünde kalırsa bu sayıları değiştirebilirsiniz.
+  Toplam_Seyirci = c(9000000, 900000, 70000) 
+)
+
+# 2. ADIM: Grafik Bloğu
+ggplot(sanat_birlesik, aes(x = Yil, y = Toplam_Seyirci, fill = Kategori, color = Kategori)) +
   
-  # Pandemi kırılmasını grafik üzerinde kırmızı bir halka ile vurgulama
-  geom_point(data = pandemi_noktasi, aes(x = Yil, y = Toplam_Seyirci), color = "#e31a1c", size = 6, shape = 1, stroke = 2) +
+  # Çizginin altına kategoriye özel renklerle gölge efekti
+  geom_area(alpha = 0.15, show.legend = FALSE) +
   
-  # Grafik içi yönlendirici metin balonu
-  annotate("label", x = 2020, y = 2000000, label = "Pandemi Etkisi\n(714 Bin Seyirci)", 
-           color = "#e31a1c", fontface = "bold", size = 3.5, label.padding = unit(0.5, "lines")) +
+  # Ana trend çizgileri
+  geom_line(size = 1.2, show.legend = FALSE) +
   
-  # Eksen ve sayı biçimlendirmeleri
-  scale_y_continuous(labels = label_number(suffix = " Milyon", scale = 1e-6), breaks = seq(0, 8000000, 2000000)) +
+  # Veri noktaları (İçi beyaz, kenarı kategori renginde halkalar)
+  geom_point(size = 2.5, fill = "white", shape = 21, stroke = 1.2, show.legend = FALSE) +
+  
+  # Pandemi kırılmasını her panelde kırmızı bir halka ile vurgulama
+  geom_point(data =  pandemi_noktalari, aes(x = Yil, y = Toplam_Seyirci), 
+             color = "#e31a1c", size = 5, shape = 1, stroke = 1.5, inherit.aes = FALSE) +
+  
+  # EKLENEN KISIM: Her paneldeki kırmızı halkanın üstüne "Pandemi Etkisi" yazısı ekleme
+  geom_label(data = pandemi_etiketleri, aes(x = Yil, y = Toplam_Seyirci, label = Metin),
+             color = "#e31a1c", fontface = "bold", size = 3.5, lineheight = 0.9,
+             label.padding = unit(0.3, "lines"), fill = "white", alpha = 0.85, inherit.aes = FALSE) +
+  
+  # Grafiği ortak X ekseninde alt alta 3 bağımsız Y eksenli panele böler
+  facet_grid(Kategori ~ ., scales = "free_y") +
+  
+  # Eksen ve sayı biçimlendirmeleri (TÜİK standart virgüllü binlik ayrımı)
+  scale_y_continuous(labels = label_number(big.mark = ".")) + 
   scale_x_continuous(breaks = seq(2000, 2024, 2)) +
+  
+  # Kategori bazlı kurumsal renk paleti atama (Sinema, Tiyatro, Opera için)
+  scale_color_manual(values = c("Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4", "Opera & Bale" = "#9467bd")) +
+  scale_fill_manual(values = c("Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4", "Opera & Bale" = "#9467bd")) +
   
   # Başlıklar ve Etiketler
   labs(
-    title = "Türkiye'de Tiyatro Seyircisinin Çeyrek Asırlık Yolculuğu",
-    subtitle = "2000-2024 Sezonları Toplam Seyirci Değişimi ve Pandemi Etkisi",
+    title = "Türkiye'de Kültür ve Sanat Seyircisinin Çeyrek Asırlık Yolculuğu",
+    subtitle = "2000-2024 Sezonları Sinema, Tiyatro ve Opera Seyirci Değişimleri (Bağımsız Ölçekler)",
     x = "Sezon Başlangıç Yılı",
     y = "Toplam Seyirci Sayısı",
     caption = "Veri Kaynağı: TÜİK Kültür İstatistikleri"
   ) +
   
   # Kurumsal ve temiz tema ayarları
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 11) +
   theme(
-    plot.title = element_text(face = "bold", size = 16, color = "#2c3e50"),
+    plot.title = element_text(face = "bold", size = 15, color = "#2c3e50"),
     plot.subtitle = element_text(size = 11, color = "#7f8c8d", margin = margin(b = 15)),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(), 
     axis.title = element_text(face = "bold", color = "#34495e"),
     axis.text = element_text(color = "#2c3e50"),
+    # Panellerin sağdaki başlık şeritlerini özelleştirme
+    strip.text.y = element_text(face = "bold", size = 11, color = "#2c3e50", angle = 0),
+    strip.background = element_rect(fill = "#f8f9fa", color = NA),
     plot.caption = element_text(face = "italic", color = "#95a5a6", size = 9, margin = margin(t = 15))
   )
+
 ```
 
-```{r arz-talep-facet-grafik, fig.width=11, fig.height=7, message=FALSE, warning=FALSE, echo=FALSE}
+## Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri
 
-# Hem oyun sayılarını hem seyirci sayılarını tek bir temiz veri setinde topluyoruz
-birlesik_trend <- tiyatro_pure %>%
+```{r yerli-yabancı-iceriklere-göre-sanat-dalları, message=FALSE, warning=FALSE, echo=FALSE}
+
+# --- A) TİYATRO VERİSİNİN HAZIRLANMASI ---
+tiyatro_trend <- tiyatro_pure %>%
   select(
     Sezon = 1, 
-    Oyun_Telif = 6, 
-    Oyun_Ceviri = 7, 
-    Seyirci_Telif = 14, 
-    Seyirci_Ceviri = 15
+    Oyun_Yerli = 6,   # Oyun_Telif
+    Oyun_Yabanci = 7,  # Oyun_Ceviri
+    Seyirci_Yerli = 14, # Seyirci_Telif
+    Seyirci_Yabanci = 15 # Seyirci_Ceviri
   ) %>%
-  filter(!is.na(Sezon), !is.na(Oyun_Telif)) %>%
+  filter(!is.na(Sezon), !is.na(Oyun_Yerli)) %>%
   filter(str_detect(Sezon, "1999|20[0-9]{2}")) %>%
   mutate(
-    Oyun_Telif = as.numeric(str_remove_all(Oyun_Telif, "[\\.\\s]")),
-    Oyun_Ceviri = as.numeric(str_remove_all(Oyun_Ceviri, "[\\.\\s]")),
-    Seyirci_Telif = as.numeric(str_remove_all(Seyirci_Telif, "[\\.\\s]")),
-    Seyirci_Ceviri = as.numeric(str_remove_all(Seyirci_Ceviri, "[\\.\\s]")),
+    across(-Sezon, ~as.numeric(str_remove_all(., "[\\.\\s]"))),
     Yil = 2000:2024
   ) %>%
-  # Veriyi grafik için uzun formata getiriyoruz
-  pivot_longer(
-    cols = c(Oyun_Telif, Oyun_Ceviri, Seyirci_Telif, Seyirci_Ceviri),
-    names_to = "Metrik_Tur",
-    values_to = "Deger"
-  ) %>%
-  # Metrikleri panel ve renk gruplarına ayırıyoruz
+  select(-Sezon) %>%
+  pivot_longer(cols = -Yil, names_to = "Metrik", values_to = "Deger") %>%
   mutate(
-    Analiz_Paneli = if_else(str_detect(Metrik_Tur, "^Oyun"), "Toplam Oynanan Oyun Sayısının Orijinal/Çeviri Analizi", "Toplam Seyirci Sayısının Orijinal/Çeviri Tercih Analizi"),
-    Eser_Kokeni = if_else(str_detect(Metrik_Tur, "Telif$"), "Orijinal Eser", "Çeviri Eser")
+    Sektor = "Tiyatro",
+    Tur = if_else(str_detect(Metrik, "^Oyun"), "Eser / Film Sayısı", "Seyirci Sayısı"),
+    Koken = if_else(str_detect(Metrik, "Yerli$"), "Yerli / Orijinal Eser", "Yabancı / Çeviri Eser")
   )
 
-# 2. AYNI X EKSENİNDE PANEL (FACET) GRAFİĞİ ÇİZİMİ
-ggplot(birlesik_trend, aes(x = Yil, y = Deger, color = Eser_Kokeni, group = Eser_Kokeni)) +
+# --- B) SİNEMA VERİSİNİN HAZIRLANMASI ---
+# Not: Önceki adımlarda tamamladığımız 'sinema_tamamlanmis' tablonuzu kullanıyoruz
+sinema_trend <- sinema_tamamlanmis %>%
+  select(
+    Yil,
+    Oyun_Yerli = Yerli_Film,
+    Oyun_Yabanci = Yabancı_Film,
+    Seyirci_Yerli = YerliFilm_Seyirci,
+    Seyirci_Yabanci = YabancıFilm_Seyirci
+  ) %>%
+  pivot_longer(cols = -Yil, names_to = "Metrik", values_to = "Deger") %>%
+  mutate(
+    Sektor = "Sinema",
+    Tur = if_else(str_detect(Metrik, "^Oyun"), "Eser / Film Sayısı", "Seyirci Sayısı"),
+    Koken = if_else(str_detect(Metrik, "Yerli$"), "Yerli / Orijinal Eser", "Yabancı / Çeviri Eser")
+  )
+
+
+# --- C) OPERA VERİSİNİN HAZIRLANMASI (YENİ EKLENEN KISIM) ---
+opera_trend <- opera_pure %>%
+  select(
+    Sezon = 1,
+    Oyun_Yerli = 6,         # Yerli_Eser
+    Oyun_Yabanci = 7,       # Yabancı_Eser
+    Seyirci_Yerli = 10,     # YerliEser_Seyirci
+    Seyirci_Yabanci = 11    # YabancıEser_Seyirci
+  ) %>%
+  filter(!is.na(Sezon), !is.na(Oyun_Yerli)) %>%
+  filter(str_detect(Sezon, "1999|20[0-9]{2}")) %>%
+  mutate(
+    across(-Sezon, ~as.numeric(str_remove_all(., "[\\.\\s]"))),
+    Yil = 2000:2024 # Sektörler arası bütünlük için yılları eşitliyoruz
+  ) %>%
+  select(-Sezon) %>%
+  pivot_longer(cols = -Yil, names_to = "Metrik", values_to = "Deger") %>%
+  mutate(
+    Sektor = "Opera & Bale",
+    Tur = if_else(str_detect(Metrik, "^Oyun"), "Eser / Film Sayısı", "Seyirci Sayısı"),
+    Koken = if_else(str_detect(Metrik, "Yerli$"), "Yerli / Orijinal Eser", "Yabancı / Çeviri Eser")
+  )
+
+# --- D) TÜM SEKTÖRLERİN BİRLEŞTİRİLMESİ ---
+birlesik_pazar <- bind_rows(tiyatro_trend, sinema_trend, opera_trend) %>%
+  filter(Yil >= 2000 & Yil <= 2024) %>%
+  mutate(
+    # Sağ taraftaki başlık şeritlerinde görünecek panel metni
+    Analiz_Paneli = paste(Sektor, "-", Tur)
+  )
+
+```
+
+```{r arz-talep-sinema-tiyatro-opera-grafik, fig.width=12, fig.height=12, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(birlesik_pazar, aes(x = Yil, y = Deger, color = Sektor, fill = Sektor, linetype = Koken, group = interaction(Sektor, Koken))) +
+  
+  # Hafif gölge efekti (Alan boyama)
+  geom_area(alpha = 0.08, position = "identity", show.legend = FALSE) +
+  
+  # Kalın trend çizgileri (Düz çizgi = Yerli, Kesikli çizgi = Yabancı)
   geom_line(size = 1.3) +
-  geom_point(size = 2.2, fill = "white", shape = 21, stroke = 1.5) +
   
-  # facet_wrap ile grafiği alt alta iki panele bölüyoruz. 
-  # scales = "free_y" sayesinde her panel kendi Y ekseni ölçeğini kullanıyor ama X ekseni ortak kalıyor!
-  facet_wrap(~Analiz_Paneli, ncol = 1, scales = "free_y") +
+  # İçi beyaz kurumsal veri noktaları
+  geom_point(size = 2.2, fill = "white", shape = 21, stroke = 1.3, show.legend = FALSE) +
   
-  # Eksen ve sayıların düzgün formatlanması
+  # Alt alta 6 bağımsız Y eksenli büyük panel düzeni
+  facet_grid(Analiz_Paneli ~ ., scales = "free_y") +
+  
+  # Eksen ve sayıların Türkiye standardında noktayla ayrılması
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   scale_x_continuous(breaks = seq(2000, 2024, 2)) +
   
-  # Kontrastı yüksek kurumsal renk paleti
-  scale_color_manual(values = c("Orijinal Eser" = "#d62728", "Çeviri Eser" = "#2ca02c")) +
+  # Sektör renkleri (Önceki grafiklerle uyumlu)
+  scale_color_manual(values = c("Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4", "Opera & Bale" = "#9467bd")) +
+  scale_fill_manual(values = c("Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4", "Opera & Bale" = "#9467bd")) +
   
-  # Başlıklar
+  # DÜZELTİLEN KISIM: Çizgi tipi eşleştirmesi ve lejant başlığı
+  scale_linetype_manual(values = c("Yerli / Orijinal Eser" = "solid", "Yabancı / Çeviri Eser" = "dashed")) +
+  
+  # Başlıklar ve Etiketler
   labs(
-    title = "Türkiye Tiyatro Pazarında Arz ve Talep Uyumu",
-    subtitle = "2000-2024 Dönemi Oynanan Oyun Sayısı (Arz) ve Seyirci Sayısı (Talep) Karşılaştırmalı Trendi",
+    title = "Türkiye Kültür Pazarında Yerli ve Yabancı Eser Tercihleri",
+    subtitle = "2000-2024 Dönemi Sektörel Renklerle Arz (Eser) ve Talep (Seyirci) Dağılımı",
     x = "Sezon Başlangıç Yılı",
     y = "Değer (Adet / Kişi)",
-    color = "Eser Kökeni",
+    color = "Kültür Sektörü",
+    linetype = "Eser / İçerik Kökeni",  # Çizgi tipinin açıklaması lejantta bu başlıkla görünecek
     caption = "Veri Kaynağı: TÜİK Kültür İstatistikleri"
   ) +
   
-  # Profesyonel Panel Grafik Teması
-  theme_minimal(base_size = 12) +
+  # EKLENEN KISIM: Göstergelerin (Lejantın) zorunlu olarak ekranda basılmasını sağlama
+  guides(
+    color = guide_legend(order = 1, override.aes = list(size = 4, linetype = "solid")),
+    linetype = guide_legend(order = 2, override.aes = list(color = "black", size = 1)) # Çizgi tipini siyah renkle net gösterir
+  ) +
+  
+  # Genişletilmiş Gelişmiş Tema Ayarları
+  theme_minimal(base_size = 11) +
   theme(
     plot.title = element_text(face = "bold", size = 16, color = "#2c3e50"),
     plot.subtitle = element_text(size = 11, color = "#7f8c8d", margin = margin(b = 15)),
     legend.position = "bottom",
+    legend.box = "horizontal", 
+    legend.title = element_text(face = "bold", size = 10),
+    legend.text = element_text(size = 10),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(),
-    axis.title = element_text(face = "bold"),
-    # Panel başlıklarının tasarımı
-    strip.text = element_text(face = "bold", size = 12, color = "white"),
-    strip.background = element_rect(fill = "#34495e", color = NA)
+    axis.title = element_text(face = "bold", color = "#34495e"),
+    axis.text = element_text(color = "#2c3e50"),
+    
+    # Sağ taraftaki gri panel şeritlerinin tasarımı
+    strip.text.y = element_text(face = "bold", size = 9, color = "#2c3e50", angle = 0, hjust = 0),
+    strip.background = element_rect(fill = "#f8f9fa", color = NA),
+    
+    plot.caption = element_text(face = "italic", color = "#95a5a6", size = 9, margin = margin(t = 15))
   )
+
 ```
 
-```{r birlesik-oran-analizi, fig.width=11, fig.height=8, message=FALSE, warning=FALSE, echo=FALSE}
 
-# 1. ARZ (OYUN ORANLARI) VERİSİNİ HAZIRLAMA
-oyun_oran <- tiyatro_pure %>%
-  select(Sezon = 1, Telif = 6, Ceviri = 7) %>%
-  filter(!is.na(Telif), !is.na(Ceviri), !is.na(Sezon), str_detect(Sezon, "1999|20[0-9]{2}")) %>%
-  mutate(
-    Telif = as.numeric(str_remove_all(Telif, "[\\.\\s]")),
-    Ceviri = as.numeric(str_remove_all(Ceviri, "[\\.\\s]")),
-    Yil = 2000:2024,
-    Toplam = Telif + Ceviri,
-    Yerli_Oran = Telif / Toplam,
-    Yabanci_Oran = Ceviri / Toplam
-  ) %>%
-  select(Yil, Yerli_Oran, Yabanci_Oran) %>%
-  pivot_longer(cols = c(Yerli_Oran, Yabanci_Oran), names_to = "Köken", values_to = "Yuzde_Oran") %>%
-  mutate(
-    Panel = "Arz Analizi: Sahnelenen Oyun Oranları (%)",
-    Köken = if_else(Köken == "Yerli_Oran", "Orijinal Eser", "Çeviri Eser")
-  )
 
-# 2. TALEP (SEYİRCİ ORANLARI) VERİSİNİ HAZIRLAMA
-seyirci_oran <- tiyatro_pure %>%
-  select(Sezon = 1, Telif_Seyirci = 14, Ceviri_Seyirci = 15) %>%
-  filter(!is.na(Telif_Seyirci), !is.na(Ceviri_Seyirci), !is.na(Sezon), str_detect(Sezon, "1999|20[0-9]{2}")) %>%
-  mutate(
-    Telif_Seyirci = as.numeric(str_remove_all(Telif_Seyirci, "[\\.\\s]")),
-    Ceviri_Seyirci = as.numeric(str_remove_all(Ceviri_Seyirci, "[\\.\\s]")),
-    Yil = 2000:2024,
-    Toplam = Telif_Seyirci + Ceviri_Seyirci,
-    Yerli_Oran = Telif_Seyirci / Toplam,
-    Yabanci_Oran = Ceviri_Seyirci / Toplam
-  ) %>%
-  select(Yil, Yerli_Oran, Yabanci_Oran) %>%
-  pivot_longer(cols = c(Yerli_Oran, Yabanci_Oran), names_to = "Köken", values_to = "Yuzde_Oran") %>%
-  mutate(
-    Panel = "Talep Analizi: Seyirci Tercih Oranları (%)",
-    Köken = if_else(Köken == "Yerli_Oran", "Orijinal Eser", "Çeviri Eser")
-  )
+## Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi
 
-# 3. İKİ VERİ SETİNİ ALT ALTA BİRLEŞTİRME
-birlesik_oran_trend <- bind_rows(oyun_oran, seyirci_oran)
+```{r eglencekultur-nüfus arasındaki iliski, message=FALSE, warning=FALSE, echo=FALSE}
 
-# 4. TEK X EKSENİNDE PANEL (FACET) GRAFİK ÇİZİMİ
-ggplot(birlesik_oran_trend, aes(x = factor(Yil), y = Yuzde_Oran, fill = Köken)) +
-  geom_col(width = 0.75, color = "white", size = 0.2) +
+eglence_nufus_data <- data.frame(
+  Yil = 2000:2024,
+  Nüfus = turkiye_nüfus$Nufus,
+  Eglence_Kultur_Harcama = hanehalkı_tamamlanmis$Eglence_Kultur_Oran
+)
+#Nüfus hacmi ile eğlence-kültür harcaması payı arasında ne kadarlık bir bağ olduğunu test ediyoruz:
+eglence_nufus_kor <- cor.test(eglence_nufus_data$Nüfus, eglence_nufus_data$Eglence_Kultur_Harcama, method = "pearson")
+
+#Nüfustaki artışın, harcama oranındaki değişimi ne kadar açıkladığını görmek için doğrusal modeli çalıştırıyoruz:
+eglence_nufus_regresyon <- lm(Eglence_Kultur_Harcama ~ Nüfus, data = eglence_nufus_data)
+
+#Sonuçların Görselleştirilmesi
+
+# Veriyi milyon cinsinden göstermek grafiği sadeleştirir
+eglence_nufus_data$Nufus_Milyon <- eglence_nufus_data$Nüfus / 1000000
+
+# Gelişmiş ve Etkileyici Grafik Tasarımı
+ggplot(eglence_nufus_data, aes(x = Nufus_Milyon, y = Eglence_Kultur_Harcama)) +
   
-  # Grafiği alt alta iki panele bölüyoruz (X eksenleri ortak)
-  facet_wrap(~Panel, ncol = 1) +
+  # Şık ve Yumuşak Güven Aralığı ile Mat Trend Çizgisi
+  geom_smooth(method = "lm", color = "#475569", fill = "#E2E8F0", alpha = 0.4, size = 1, linetype = "solid") +
   
-  # Y eksenini % formatına getirme
-  scale_y_continuous(labels = label_percent(), expand = c(0, 0)) +
+  # Yılları birbirine bağlayan ince zaman yolu (Yarı saydam minimalist hat)
+  geom_path(color = "#CBD5E1", size = 0.6, alpha = 0.7) +
   
-  # Net ve yüksek kontrastlı renk paleti (Mavi: Yerli, Gri: Yabancı)
-  scale_fill_manual(values = c("Orijinal Eser" = "#1f77b4", "Çeviri Eser" = "#d9d9d9")) +
+  # Yenilenen Özel Renk Paleti (Derin Füme -> Zümrüt Yeşili)
+  geom_point(aes(color = Yil), size = 4, alpha = 0.95) +
+  scale_color_gradient(low = "#1E293B", high = "#10B981", name = "Zaman Çizelgesi (Yıllar)") +
   
-  # Başlıklar
-  labs(
-    title = "Türkiye Tiyatro Pazarında Oransal Arz-Talep Dengesi",
-    subtitle = "2000-2024 Dönemi Sahnelenen Oyunlar ve Seyirci Tercihlerinin Yüzdesel Karşılaştırması",
-    x = "Sezon Başlangıç Yılı",
-    y = "Pazar Payı Oranı (%)",
-    fill = "Eser Kökeni",
-    caption = "Veri Kaynağı: TÜİK Kültür İstatistikleri"
+  # Küçültülmüş ve Şık Yıl Etiketleri (Punto 2.8'e düşürüldü)
+  geom_text_repel(
+    aes(label = ifelse(Yil %% 2 == 0 | Yil == 2024, as.character(Yil), "")),
+    size = 2.8,
+    fontface = "bold",
+    family = "sans",
+    color = "#475569",
+    box.padding = 0.3,
+    point.padding = 0.3,
+    max.overlaps = 40
   ) +
   
-  # Profesyonel Grafik Estetiği
-  theme_minimal(base_size = 11) +
+  # Başlıklar ve Sağa Yaslanmış Altyazı
+  labs(
+    title = "Nüfus Dinamiklerinin Eğlence ve Kültür Harcamalarına Etkisi",
+    subtitle = "Türkiye Geneli Zaman Serisi Analizi (2000 - 2024)",
+    x = "Toplam Nüfus (Milyon Kişi)",
+    y = "Hanehalkı Eğlence ve Kültür Harcaması Payı (%)",
+    caption = "Veri Kaynağı: TÜİK Hanehalkı Tüketim Harcaması & Nüfus İstatistikleri  |  Gri çizgi doğrusal eğilim trendini gösterir."
+  ) +
+  
+  # Tamamen Yenilenmiş Premium Minimalist Tema Ayarları
+  theme_minimal(base_size = 13, base_family = "sans") +
   theme(
-    plot.title = element_text(face = "bold", size = 15, color = "#2c3e50"),
-    plot.subtitle = element_text(size = 11, color = "#7f8c8d", margin = margin(b = 15)),
-    legend.position = "top",
-    legend.justification = "center",
+    panel.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(fill = "white", color = NA),
+    
+    # Metin Hiyerarşisi
+    plot.title = element_text(face = "bold", size = 16, color = "#0F172A", margin = margin(b = 4)),
+    plot.subtitle = element_text(size = 11, color = "#64748B", margin = margin(b = 15)),
+    plot.caption = element_text(size = 8, color = "#94A3B8", hjust = 1, margin = margin(t = 15)),
+    
+    # Eksen Tasarımları
+    axis.title.x = element_text(face = "bold", size = 11, color = "#1E293B", margin = margin(t = 10)),
+    axis.title.y = element_text(face = "bold", size = 11, color = "#1E293B", margin = margin(r = 10)),
+    axis.text = element_text(color = "#64748B", face = "plain", size = 9),
+    
+    # İnce Izgara Çizgileri
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#F8FAFC", size = 0.5),
+    
+    # ALT KISMA ALINMIŞ YATAY VE ESTETİK LEGEND (GÖSTERGE) TASARIMI
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_text(face = "bold", size = 9, color = "#1E293B", vjust = 0.8),
+    legend.text = element_text(size = 9, color = "#64748B"),
+    legend.key.width = unit(1.5, "cm"),  # Renk çubuğunun genişliği
+    legend.key.height = unit(0.25, "cm")  # Renk çubuğunun inceliği
+  ) +
+  # Alt taraftaki gösterge çubuğunu estetik hale getiren ince ayar
+  guides(color = guide_colorbar(title.position = "left", title.hjust = 0.5, barborder = element_blank()))
+```
+
+
+## Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)
+
+
+```{r eglencekultur-nüfus-kultur-dataframe, message=FALSE, warning=FALSE, echo=FALSE}
+
+# --- A) TÜM SEKTÖRLERİ TEK BİR HAVUZDA TOPLAMA ---
+# Not: sinema_tamamlanmis ve hanehalkı_tamamlanmis tablolarınızın aktif olduğunu varsayıyoruz.
+kultur_nufus_havuz <- tibble(
+  Yil = 2000:2024,
+  Nufus_Milyon = turkiye_nüfus$Nufus / 1000000,
+  Harcama = hanehalkı_tamamlanmis$Eglence_Kultur_Oran,
+  Sinema_Seyirci = sinema_tamamlanmis$Toplam_Seyirci / 1000000,
+  Tiyatro_Seyirci = tiyatro_clean$Toplam_Seyirci / 1000000,
+  Opera_Seyirci = opera_clean$Toplam_Seyirci / 1000000 # Orijinal veya temiz tablonuzdan milyon cinsinden seyirci
+) %>%
+  # Veriyi panel yapısına uydurmak için uzun formata getiriyoruz
+  pivot_longer(
+    cols = c(Sinema_Seyirci, Tiyatro_Seyirci, Opera_Seyirci),
+    names_to = "Sektor_Gecici",
+    values_to = "Seyirci_Milyon"
+  ) %>%
+  mutate(
+    Sektor = case_when(
+      Sektor_Gecici == "Sinema_Seyirci" ~ "Sinema",
+      Sektor_Gecici == "Tiyatro_Seyirci" ~ "Tiyatro",
+      Sektor_Gecici == "Opera_Seyirci"  ~ "Opera & Bale"
+    )
+  )
+
+# --- B) SİHİRLİ ADIM: HER PANEL İÇİN DİNAMİK ÖLÇEKLENDİRME KATSAYISI ---
+# Sabit katsayı yerine, her sektörün maksimum seyircisini harcamanın maksimumuna oranlıyoruz.
+# Böylece ikincil Y eksenleri (Sağ eksenler) panellerde kusursuz hizalanacak.
+kultur_nufus_data <- kultur_nufus_havuz %>%
+  group_by(Sektor) %>%
+  mutate(
+    max_harcama = max(Harcama, na.rm = TRUE),
+    max_seyirci = max(Seyirci_Milyon, na.rm = TRUE),
+    # Her sektöre özel ölçeklendirme çarpanı
+    Panel_Katsayi = max_harcama / max_seyirci,
+    # Seyirci değerini harcama ölçeğine uyduruyoruz
+    Seyirci_Olcekli = Seyirci_Milyon * Panel_Katsayi
+  ) %>%
+  ungroup()
+```
+
+```{r eglencekultur-nüfus-kultur-grafigi, fig.width=12, fig.height=12, message=FALSE, warning=FALSE, echo=FALSE}
+# --- A) VERİNİN FACTOR OLARAK SIRALANMASI ---
+# KRİTİK ADIM: Akışı tam istediğiniz gibi "Opera & Bale", "Sinema", "Tiyatro" şeklinde kilitliyoruz.
+kultur_nufus_data <- kultur_nufus_data %>%
+  mutate(Sektor = factor(Sektor, levels = c("Opera & Bale", "Sinema", "Tiyatro")))
+
+# --- B) GELİŞMİŞ VE OKUNAKLI GRAFİK ÇİZİMİ ---
+ggplot(kultur_nufus_data, aes(x = Nufus_Milyon)) +
+  
+  # Arka Plan Zaman Patikası (Gri rehber yol çizgileri)
+  geom_path(aes(y = Harcama), color = "#E2E8F0", size = 0.5) +
+  geom_path(aes(y = Seyirci_Olcekli, color = Sektor), size = 0.5, alpha = 0.15, show.legend = FALSE) +
+  
+  # 1. Gösterge: Eğlence-Kültür Harcaması Trendi (Koyu Gri/Mat Siyah Düz Çizgi)
+  geom_smooth(aes(y = Harcama, linetype = "Hanehalkı Eğlence ve Kültür Harcaması Bütçe Payı (%)"), 
+              method = "lm", color = "#1E293B", fill = "#1E293B", alpha = 0.03, size = 1, se = TRUE) +
+  geom_point(aes(y = Harcama), color = "#1E293B", shape = 16, size = 1.3, alpha = 0.7) +
+  
+  # 2. Gösterge: Sektörel Seyirci Trendleri (Sektörel Renklerde Kesikli Çizgi)
+  geom_smooth(aes(y = Seyirci_Olcekli, color = Sektor, fill = Sektor, linetype = "Sektörel Seyirci Yoğunluğu Eğrisi (Milyon)"), 
+              method = "lm", alpha = 0.03, size = 1, se = TRUE) +
+  geom_point(aes(y = Seyirci_Olcekli, color = Sektor), shape = 15, size = 1.6, alpha = 0.8, show.legend = FALSE) +
+  
+  # Akıllı Zaman Etiketleri
+  geom_text_repel(
+    aes(y = Harcama, label = ifelse(Yil %% 2 == 0 | Yil == 2024, as.character(Yil), "")),
+    size = 2.4, fontface = "bold", color = "#64748B", box.padding = 0.2, max.overlaps = 50
+  ) +
+  
+  # Alt alta 3 bağımsız Y eksenli büyük panel düzeni
+  facet_grid(Sektor ~ ., scales = "free_y") +
+  
+  # ==================== EKSEN VE RENK PALETLERİ ====================
+  # Sektörel renklerin doğru atanması: Opera=Mor, Sinema=Yeşil, Tiyatro=Mavi
+  scale_color_manual(values = c("Opera & Bale" = "#9467bd", "Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4")) +
+  scale_fill_manual(values = c("Opera & Bale" = "#9467bd", "Sinema" = "#2ca02c", "Tiyatro" = "#1f77b4")) +
+  
+  # Lejant göstergesinde düz ve kesikli çizgi tiplerinin anlamlandırılması
+  scale_linetype_manual(values = c(
+    "Hanehalkı Eğlence ve Kültür Harcaması Bütçe Payı (%)" = "solid",
+    "Sektörel Seyirci Yoğunluğu Eğrisi (Milyon)" = "dashed"
+  )) +
+  
+  # Sadeleştirilmiş ve net eksen adları
+  scale_y_continuous(name = "Kültürel Tüketim Değişim Ölçeği") +
+  scale_x_continuous(labels = label_number(suffix = " M")) + 
+  
+  # Başlıklar ve Lejant İsimleri
+  labs(
+    title = "Nüfus Dinamiklerine Bağlı Kültürel Tüketim Sektör Analizi",
+    subtitle = "2000-2024 Dönemi Hanehalkı Bütçe Payı ve Sanat Seyircisi Gelişim Eğrileri",
+    x = "Türkiye Toplam Nüfusu (Milyon Kişi)",
+    linetype = "Grafik Göstergeleri (Trend Çizgileri)", # Alt lejant başlığı
+    caption = "Veri Kaynağı: TÜİK Kültür ve Nüfus İstatistikleri\nNot: Şeffaf alanlar %95 güven aralıklarını, doğrusal çizgiler regresyon trendini temsil etmektedir."
+  ) +
+  
+  # ==================== GÖNDERDİĞİNİZ GÖRSELLE EŞLEŞEN TEMA AYARLARI ====================
+  theme_minimal(base_size = 11, base_family = "sans") +
+  theme(
+    panel.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(fill = "white", color = NA),
+    
+    plot.title = element_text(face = "bold", size = 15, color = "#1E293B", margin = margin(b = 4)),
+    plot.subtitle = element_text(size = 11, color = "#64748B", margin = margin(b = 15)),
+    plot.caption = element_text(size = 8.5, color = "#94A3B8", hjust = 1, margin = margin(t = 15), face = "italic"),
+    
+    axis.title.x = element_text(face = "bold", size = 11, color = "#1E293B", margin = margin(t = 12)),
+    axis.title.y = element_text(face = "bold", size = 11, color = "#1E293B", margin = margin(r = 10)),
+    axis.text.x = element_text(color = "#334155"),
+    axis.text.y = element_text(color = "#1E293B", face = "bold"),
+    
+    # İnce soft gri yatay kılavuz çizgileri (Görseldeki gibi)
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(), 
-    axis.text.x = element_text(angle = 45, hjust = 1, face = "bold"),
-    axis.title = element_text(face = "bold"),
-    # Panel başlıklarının şık tasarımı
-    strip.text = element_text(face = "bold", size = 11, color = "white"),
-    strip.background = element_rect(fill = "#34495e", color = NA)
+    panel.grid.major.y = element_line(color = "#E2E8F0", size = 0.4), 
+    
+    # Sağ panel kutu tasarımı (Görseldeki gibi soft gri arka plan ve belirgin font)
+    strip.text.y = element_text(face = "bold", size = 11, color = "#2c3e50", angle = 0, hjust = 0.5),
+    strip.background = element_rect(fill = "#F8FAFC", color = "#E2E8F0", size = 0.5),
+    
+    # 🌟 LEJANTIN GRAFİĞİN ALTINA ALINMASI AYARLARI:
+    legend.position = "bottom",              # Lejantı alta taşır
+    legend.box = "vertical",                 # İhtiyaç halinde taşmaları önlemek için dikey hizalar
+    legend.title = element_text(face = "bold", size = 9, color = "#1E293B"),
+    legend.text = element_text(size = 9, color = "#334155"),
+    legend.background = element_rect(fill = "#F8FAFC", color = "#E2E8F0") # Hafif soft kutu içine alır
+  ) +
+  # Sektörel renk karmaşasının lejanta vurmasını engellemek için lejant çizgilerini nötr siyah gösteriyoruz
+  guides(
+    color = "none",
+    fill = "none",
+    linetype = guide_legend(override.aes = list(color = "#1E293B", size = 1))
   )
+
+
 ```
