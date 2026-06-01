@@ -1,7 +1,6 @@
 ---
 title: "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE'NİN SAHNE YOLCULUĞU"
 number-sections: true
-    
 ---
 
 ![](data/proje_foto.jpeg){fig-align="center" width="1000" height="600"}
@@ -34,9 +33,7 @@ library(psych)
 
 # Proje Genel Bakış ve Kapsamı
 
-Bu çalışma, Türkiye'de 2000-2024 yılları arasında kültürel tüketimin nasıl dönüştüğünü anlamayı amaçlamaktadır. Tiyatro, sinema ile opera ve bale sektörlerine ait seyirci verileri; nüfus büyümesi ve hanehalkı harcama yapısındaki değişimlerle birlikte ele alınarak kültürel talebi şekillendiren dinamikler çok boyutlu biçimde incelenmektedir.
-Projenin kapsamı iki temel eksen üzerine kuruludur. İlk eksende, sektörel seyirci trendleri zaman serisi analiziyle ortaya konmakta; pandemi ve ekonomik dalgalanmalar gibi dışsal şokların her sektörü nasıl farklı etkilediği değerlendirilmektedir. İkinci eksende ise artan nüfusun ve değişen hanehalkı bütçe önceliklerinin kültürel harcamalar üzerindeki etkisi regresyon modelleriyle analiz edilmektedir.
-Tüm analizler TÜİK'in kamuya açık veri setleri kullanılarak R programlama diliyle gerçekleştirilmiş; bulgular görselleştirme ağırlıklı bir yaklaşımla sunulmuştur.
+Bu çalışma, Türkiye'de 2000-2024 yılları arasında kültürel tüketimin nasıl dönüştüğünü anlamayı amaçlamaktadır. Tiyatro, sinema ile opera ve bale sektörlerine ait seyirci verileri; nüfus büyümesi ve hanehalkı harcama yapısındaki değişimlerle birlikte ele alınarak kültürel talebi şekillendiren dinamikler çok boyutlu biçimde incelenmektedir. Projenin kapsamı iki temel eksen üzerine kuruludur. İlk eksende, sektörel seyirci trendleri zaman serisi analiziyle ortaya konmakta; pandemi ve ekonomik dalgalanmalar gibi dışsal şokların her sektörü nasıl farklı etkilediği değerlendirilmektedir. İkinci eksende ise artan nüfusun ve değişen hanehalkı bütçe önceliklerinin kültürel harcamalar üzerindeki etkisi regresyon modelleriyle analiz edilmektedir. Tüm analizler TÜİK'in kamuya açık veri setleri kullanılarak R programlama diliyle gerçekleştirilmiş; bulgular görselleştirme ağırlıklı bir yaklaşımla sunulmuştur.
 
 # Veri
 
@@ -102,7 +99,15 @@ sinema_pure <- read_excel("data/SinemaGosterilenFilmveSeyirciSayısı.xlsx")
 
 # Keşifsel Veri Analizi ve Ön İşleme
 
-### Veriye Genel Bakış
+Çalışma kapsamında kullanılan TÜİK veri setleri analiz öncesinde ön işleme sürecinden geçirilmiştir. Bu süreçte veri setlerinde bulunan gereksiz satır ve sütunlar temizlenmiş, sütun isimleri düzenlenmiş ve veri tipleri analiz için uygun hale getirilmiştir.
+
+TÜİK’ten dışa aktarılan bazı Excel dosyalarının standart tablo yapısında olmaması nedeniyle veri setlerinde yüksek sayıda NA (eksik değer) oluşmuştur. Yapılan incelemelerde bu eksik değerlerin büyük kısmının veri kaybından değil, Excel dosyalarının yapısal formatından kaynaklandığı görülmüştür.
+
+Eksik verilerin giderilmesi amacıyla farklı yöntemlerden yararlanılmıştır. Bazı eksik değerler önceki yıllardaki verilere göre doldurulmuş, bazı alanlarda doğrusal artış yaklaşımı kullanılmış, ayrıca uygun veri setlerinde interpolasyon yöntemi uygulanmıştır. Böylece analiz ve görselleştirme işlemleri için daha düzenli ve kullanılabilir veri setleri elde edilmiştir.
+
+Ayrıca farklı veri setleri yıllar bazında ortak bir yapıda birleştirilmiş ve analiz süreçlerine uygun veri formatı oluşturulmuştur.
+
+## Veriye Genel Bakış
 
 ```{r, echo=FALSE}
 
@@ -135,7 +140,7 @@ knitr::kable(sinema_pure[1:5, ])
 
 </details>
 
-### Veride bulunan Sütunlardaki NA Sayısı
+## Veride bulunan Sütunlardaki NA Sayısı
 
 ```{r, echo=FALSE}
 # 6 ayrı tablo yerine tek birleşik özet
@@ -208,7 +213,6 @@ knitr::kable(nüfus_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıla
 </details>
 
 Veri setlerinde görülen yüksek NA (eksik değer) sayıları, kullanılan TÜİK Excel dosyalarının yapısından kaynaklanmaktadır. TÜİK’ten dışa aktarılan bazı veri tablolarında birden fazla alt tablo aynı Excel sayfasında yer almakta ve başlık/satır yapıları standart veri formatında bulunmamaktadır. Bu nedenle veri ön işleme aşamasında gereksiz satır ve sütunlar temizlenmiş, analiz için uygun veri yapısı oluşturulmuştur. Tespit edilen NA değerlerinin önemli bir kısmı veri eksikliğinden değil, veri setinin yapısal formatından kaynaklanmaktadır.
-
 
 ## Verilerin Özet İstatiksel Değer Tabloları
 
@@ -716,7 +720,6 @@ datatable(
 
 ```
 
-
 # Analiz
 
 ## Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi
@@ -1001,7 +1004,7 @@ ggplot(eglence_nufus_data, aes(x = Nufus_Milyon, y = Eglence_Kultur_Harcama)) +
   
   # Başlıklar ve Sağa Yaslanmış Altyazı
   labs(
-    title = "Nüfus Dinamiklerinin Eğlence ve Kültür Harcamalarına Etkisi",
+    title = "Nüfus Dinamiklerinin Kültür Harcamalarına Etkisi",
     subtitle = "Türkiye Geneli Zaman Serisi Analizi (2000 - 2024)",
     x = "Toplam Nüfus (Milyon Kişi)",
     y = "Hanehalkı Eğlence ve Kültür Harcaması Payı (%)",
@@ -1044,7 +1047,7 @@ Regresyon trendi, nüfus büyümesiyle birlikte hanehalkının eğlence ve kült
 
 ## Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)
 
-```{r eglencekultur-nüfus-kultur-dataframe, message=FALSE, warning=FALSE, echo=FALSE}
+```{r eglencekultur-nüfus-kultur-dataframe, fig.width=12, fig.height=12, message=FALSE, warning=FALSE, echo=FALSE}
 
 # --- A) TÜM SEKTÖRLERİ TEK BİR HAVUZDA TOPLAMA ---
 # Not: sinema_tamamlanmis ve hanehalkı_tamamlanmis tablolarınızın aktif olduğunu varsayıyoruz.
@@ -1185,8 +1188,14 @@ ggplot(kultur_nufus_data, aes(x = Nufus_Milyon)) +
 
 Üç sektörde de hanehalkı eğlence-kültür harcama payı (siyah düz çizgi) nüfus büyümesiyle birlikte yataya yakın seyretmekte; yani artan nüfus, kültürel harcamaları bütçedeki ağırlığını koruyacak düzeyde beraberinde getirmektedir. Seyirci trendleri ise sektörler arasında belirgin biçimde ayrışmaktadır: Sinema ve tiyatroda seyirci yoğunluğu eğrisi (kesikli çizgi) nüfusla birlikte güçlü bir artış sergilemekte ve bu iki sektörün demografik büyümeden orantılı pay aldığını göstermektedir. Opera ve Bale'de ise seyirci trendi neredeyse yatay kalmakta; harcama payındaki hafif artışın bu sektöre talep olarak yansımadığı görülmektedir. Güven aralıklarının sinema ve tiyatroda görece dar, opera panelinde ise geniş olması, niş sektördeki tahmin belirsizliğini de sayısal olarak teyit etmektedir.
 
+# Sonuçlar ve Ana Çıkarımlar
 
+Türkiye’de kültürel tüketim alışkanlıklarının yıllar içerisindeki değişimi farklı TÜİK veri setleri kullanılarak incelenmiştir. Yapılan analizler sonucunda sinema, tiyatro ve diğer kültürel faaliyetlerin yıllara göre farklı eğilimler gösterdiği görülmüştür.
 
-# Sonuçlar
+Özellikle pandemi döneminin kültürel faaliyetler üzerinde önemli etkiler oluşturduğu dikkat çekmektedir. Pandemi sonrası süreçte sinema sektörünün eski seviyelerine tam olarak ulaşamadığı görülürken, tiyatro faaliyetlerinin daha hızlı toparlandığı gözlemlenmiştir. Ayrıca yerli yapımların kültürel tüketim içerisindeki payının zamanla arttığı görülmektedir.
+
+Çalışma genel olarak değerlendirildiğinde, kültürel tüketim davranışlarının yalnızca nüfus artışıyla değil; dijitalleşme, pandemi etkisi ve değişen bireysel alışkanlıklarla birlikte şekillendiği sonucuna ulaşılmıştır.
 
 # Yapay Zeka Kullanımı
+
+Bu çalışma sürecinde, veri analizi ve raporlama aşamalarında fikir geliştirme, kod hata ayıklama ve metin düzenleme amacıyla yapay zeka destek araçlarından yararlanılmıştır. Nihai analizler, yorumlar ve proje kurgusu grup üyeleri tarafından oluşturulmuştur.
