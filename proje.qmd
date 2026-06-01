@@ -1,11 +1,10 @@
 ---
-title: "Proje X (proje adını yazınız)"
+title: "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE'NİN SAHNE YOLCULUĞU"
 number-sections: true
+    
 ---
 
-**Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.**
-
-(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)
+![](data/proje_foto.jpeg){fig-align="center" width="1000" height="600"}
 
 ```{r ilgili kütüphanelerin çağrılması, message=FALSE, warning=FALSE, echo=FALSE}
 library(readxl)
@@ -23,15 +22,21 @@ library(dplyr)
 library(psych)
 ```
 
-# Proje Ekip Üyeleri
+# 👥 FOUR CORNERS 👥
 
-[Ceren Aşkit](takim/cerenaskit.qmd){.download-button}
-[Pakize Hergül Kaya](takim/pakizehergulkaya.qmd){.download-button}
-[Esin Gül](takim/esingul.qmd){.download-button}
-[Baran Balcı](takim/baranbalci.qmd){.download-button}
+[👩‍💻]{style="font-size:20px;"} [Ceren Aşkit](takim/cerenaskit.qmd){.download-button}
 
+[👩‍💻]{style="font-size:20px;"}[Pakize Hergül Kaya](takim/pakizehergulkaya.qmd){.download-button}
+
+[👩‍💻]{style="font-size:20px;"}[Esin Gül](takim/esingul.qmd){.download-button}
+
+[👨‍💻]{style="font-size:20px;"} [Baran Balcı](takim/baranbalci.qmd){.download-button}
 
 # Proje Genel Bakış ve Kapsamı
+
+Bu çalışma, Türkiye'de 2000-2024 yılları arasında kültürel tüketimin nasıl dönüştüğünü anlamayı amaçlamaktadır. Tiyatro, sinema ile opera ve bale sektörlerine ait seyirci verileri; nüfus büyümesi ve hanehalkı harcama yapısındaki değişimlerle birlikte ele alınarak kültürel talebi şekillendiren dinamikler çok boyutlu biçimde incelenmektedir.
+Projenin kapsamı iki temel eksen üzerine kuruludur. İlk eksende, sektörel seyirci trendleri zaman serisi analiziyle ortaya konmakta; pandemi ve ekonomik dalgalanmalar gibi dışsal şokların her sektörü nasıl farklı etkilediği değerlendirilmektedir. İkinci eksende ise artan nüfusun ve değişen hanehalkı bütçe önceliklerinin kültürel harcamalar üzerindeki etkisi regresyon modelleriyle analiz edilmektedir.
+Tüm analizler TÜİK'in kamuya açık veri setleri kullanılarak R programlama diliyle gerçekleştirilmiş; bulgular görselleştirme ağırlıklı bir yaklaşımla sunulmuştur.
 
 # Veri
 
@@ -41,21 +46,19 @@ Türkiye’nin son çeyrek asırdaki sosyo-ekonomik dönüşümünü, kültürel
 
 ```{r, echo=FALSE}
 veri_kaynak_tablosu <- data.frame(
-  Sıra = 1:6,
+  Sıra = 1:5,
   
   Veri_Seti = c(
     "Sezon Yılına Göre Tiyatro Salonu, Oynanan Eser ve Seyirci Sayısı",
     "Opera ve Bale Salonu, Koltuk, Oynanan Eser ve Seyirci Sayısı",
     "Sinema Gösterilen Film ve Seyirci Sayısı",
     "Hanehalkı Tüketim Harcamasının Türlerine Göre Dağılımı",
-    "Cinsiyete Göre Bireylerin İnternet Kullanım Oranı",
     "Cinsiyete Göre Nüfus"
   ),
   
   Kaynak = c(
     rep("TÜİK (Kültür İstatistikleri)", times = 3), # İlk 3 satır aynı olduğu için rep() kullandık
     "TÜİK (Gelir ve Yaşam Koşulları)",
-    "TÜİK (Hanehalkı Bilişim Teknolojileri)",
     "TÜİK (ADNKS / Nüfus Projeksiyonları)"
   ),
   
@@ -63,7 +66,6 @@ veri_kaynak_tablosu <- data.frame(
     "Sayısal (Yıllık/Sezon)",
     "Sayısal (Yıllık)",
     "Sayısal (Yıllık)",
-    "Yüzde (%)",
     "Yüzde (%)",
     "Sayısal (Yıllık)"
   ),
@@ -73,7 +75,6 @@ veri_kaynak_tablosu <- data.frame(
     "Karşılaştırmalı Değişken (Niş Sanat Dalı Trendi)",
     "Karşılaştırmalı Değişken (Kitlesel Eğlence Trendi)",
     "Bağımsız Değişken (Ekonomik Bütçe/Refah Etkisi)",
-    "Bağımsız Değişken (Dijital Dönüşüm/İkame Etkisi)",
     "Kontrol Değişkeni (Kişi Başına Oranlama Matrisi)"
   ),
   
@@ -97,8 +98,6 @@ opera_pure <- read_excel("data/OperaveBaleSalonuKoltukOynananEserveSeyirciSayıs
 
 sinema_pure <- read_excel("data/SinemaGosterilenFilmveSeyirciSayısı.xlsx")
 
-internet_kullanim <- read_excel("data/CinsiyeteGoreBireylerinİnternetKullanımOranı.xlsx")
-
 ```
 
 # Keşifsel Veri Analizi ve Ön İşleme
@@ -107,17 +106,62 @@ internet_kullanim <- read_excel("data/CinsiyeteGoreBireylerinİnternetKullanımO
 
 ```{r, echo=FALSE}
 
+# Ham verilerin boyut özeti — tablolar yerine sadece satır/sütun bilgisi
+veri_ozeti <- data.frame(
+  Veri_Seti = c("Tiyatro", "Opera & Bale", "Sinema", 
+                "Hanehalkı Tüketim", "Nüfus"),
+  Satır = c(nrow(tiyatro_pure), nrow(opera_pure), nrow(sinema_pure),
+            nrow(hanehalkı_tüketim), nrow(nüfus)),
+  Sütun = c(ncol(tiyatro_pure), ncol(opera_pure), ncol(sinema_pure),
+            ncol(hanehalkı_tüketim), ncol(nüfus))
+)
+knitr::kable(veri_ozeti, caption = "Ham Veri Setlerinin Boyutları")
+
+```
+
+<details>
+
+<summary><b>Tabloyu Detaylı Görüntülemek İçin Tıklayın</b></summary>
+
+```{r, echo=FALSE}
+
 knitr::kable(tiyatro_pure[1:5, ])
 knitr::kable(hanehalkı_tüketim[1:5, ])
 knitr::kable(nüfus[1:5, ])
 knitr::kable(opera_pure[1:5, ])
 knitr::kable(sinema_pure[1:5, ])
-knitr::kable(internet_kullanim[1:5, ])
-
 
 ```
+
+</details>
+
 ### Veride bulunan Sütunlardaki NA Sayısı
 
+```{r, echo=FALSE}
+# 6 ayrı tablo yerine tek birleşik özet
+na_ozet <- data.frame(
+  Veri_Seti = c("Tiyatro", "Opera & Bale", "Sinema",
+                "Hanehalkı Tüketim", "Nüfus"),
+  Toplam_Sütun_Sayısı = c(ncol(tiyatro_pure), ncol(opera_pure), ncol(sinema_pure),
+                   ncol(hanehalkı_tüketim), ncol(nüfus)),
+  NA_Iceren_Sütun_Sayısı = c(
+    sum(colSums(is.na(tiyatro_pure)) > 0),
+    sum(colSums(is.na(opera_pure)) > 0),
+    sum(colSums(is.na(sinema_pure)) > 0),
+    sum(colSums(is.na(hanehalkı_tüketim)) > 0),
+    sum(colSums(is.na(nüfus)) > 0)
+  ),
+  Toplam_NA_Sayısı = c(
+    sum(is.na(tiyatro_pure)), sum(is.na(opera_pure)), sum(is.na(sinema_pure)),
+    sum(is.na(hanehalkı_tüketim)), sum(is.na(nüfus))
+  )
+)
+knitr::kable(na_ozet, caption = "Veri Setlerinde Eksik Değer (NA) Özeti")
+```
+
+<details>
+
+<summary><b>Tabloyu Detaylı Görüntülemek İçin Tıklayın</b></summary>
 
 ```{r, echo=FALSE}
 
@@ -150,12 +194,6 @@ hanehalkı_ozet <- data.frame(
 )
 knitr::kable(hanehalkı_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
-#internet kullanım
-internet_ozet <- data.frame(
-  Sutun_Adi = colnames(internet_kullanim),
-  NA_Sayisi = colSums(is.na(internet_kullanim))
-)
-knitr::kable(internet_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıları")
 
 #nüfus
 nüfus_ozet <- data.frame(
@@ -167,7 +205,10 @@ knitr::kable(nüfus_ozet, caption = "Sütun İsimleri ve Eksik Veri (NA) Sayıla
 
 ```
 
-Ön işleme aşamalarında görüldüğü gibi veri içerisinde çok fazla sütun ve NA değerler bulunmakta. Bu sebeple verisetleri NA değerlerden arındırılmış ve kullanılacak sütunlar belirtilerek veri setleri tekrar oluşturulmuştur.
+</details>
+
+Veri setlerinde görülen yüksek NA (eksik değer) sayıları, kullanılan TÜİK Excel dosyalarının yapısından kaynaklanmaktadır. TÜİK’ten dışa aktarılan bazı veri tablolarında birden fazla alt tablo aynı Excel sayfasında yer almakta ve başlık/satır yapıları standart veri formatında bulunmamaktadır. Bu nedenle veri ön işleme aşamasında gereksiz satır ve sütunlar temizlenmiş, analiz için uygun veri yapısı oluşturulmuştur. Tespit edilen NA değerlerinin önemli bir kısmı veri eksikliğinden değil, veri setinin yapısal formatından kaynaklanmaktadır.
+
 
 ## Verilerin Özet İstatiksel Değer Tabloları
 
@@ -198,7 +239,6 @@ tiyatro_clean <- tiyatro_pure %>%
   ) 
 ```
 
-
 ```{r opera verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
 
 opera_clean <- opera_pure %>%
@@ -226,7 +266,6 @@ opera_clean <- opera_pure %>%
   )
 
 ```
-
 
 ```{r sinema verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -291,7 +330,6 @@ sinema_tamamlanmis <- bind_rows(sinema_interpolasyon, gelecek_yillar) %>%
 
 
 ```
-
 
 ```{r tiyatro-veri-ozet, echo=FALSE}
 
@@ -519,7 +557,6 @@ sinema_tamamlanmis %>%
 
 ```
 
-
 ```{r hanehalkıtüketim verisinde kullanılacak sütunların ayrıştırılması, message=FALSE, warning=FALSE, echo=FALSE}
 
 hanehalkı_clean <- hanehalkı_tüketim %>%
@@ -612,7 +649,6 @@ datatable(
 
 ```
 
-
 ```{r opera-veri-tablosu-temizlenmis, message=FALSE, warning=FALSE, echo=FALSE}
 sutun_isimleri <- c(
   "Sezon", 
@@ -647,7 +683,6 @@ datatable(
 
 ```
 
-
 ```{r sinema-veri-tablosu-temizlenmis, message=FALSE, warning=FALSE, echo=FALSE}
 sutun_isimleri <- c(
   "Yıl",
@@ -680,6 +715,9 @@ datatable(
   )
 
 ```
+
+
+# Analiz
 
 ## Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi
 
@@ -767,6 +805,8 @@ ggplot(sanat_birlesik, aes(x = Yil, y = Toplam_Seyirci, fill = Kategori, color =
   )
 
 ```
+
+Türkiye'de üç kültürel sektörün 2000-2024 seyirci eğilimleri hem ölçek hem dinamik açısından ayrışmaktadır. Sinema 2018'de 68 milyon seyirciyle zirveye ulaşarak kitlesel eğlencenin baskın mecrası konumunu pekiştirirken, tiyatro 2010'lardan itibaren ivme kazanarak 8 milyon seyirci sınırına yaklaşmıştır. Opera ve Bale ise 250.000–450.000 bandındaki volatil seyirci tabanıyla niş karakterini korumuştur. 2020 pandemi kırılması üç sektörü de derinden etkilemiş; sinema %97, tiyatro %91, opera %84 oranında seyirci kaybetmiştir. Toparlanma sürecinde sektörler ayrışmıştır: tiyatro 2024'te tüm zamanların zirvesine ulaşırken, sinema pandemi öncesi seviyenin yaklaşık yarısında kalmaktadır. Bu tablonun ardında dijital yayın platformlarının izleme alışkanlıklarında yarattığı yapısal dönüşüm belirleyici bir etken olarak öne çıkmaktadır.
 
 ## Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri
 
@@ -912,7 +952,7 @@ ggplot(birlesik_pazar, aes(x = Yil, y = Deger, color = Sektor, fill = Sektor, li
 
 ```
 
-
+Üç sektörde de arz ve talep açısından yerli-yabancı dengesi birbirinden farklı bir yapı sergilemektedir. Opera ve Bale'de yabancı eserler hem sayı hem seyirci bakımından dönem boyunca baskın konumunu korumuş; yerli üretim ise sınırlı ve dalgalı seyretmiştir. Sinemada arz tarafında yabancı filmler sayısal üstünlüğünü sürdürse de talep tarafında yerli filmler 2010'lardan itibaren belirgin biçimde güçlenmiş ve zaman zaman yabancı filmlerin seyirci sayısını geçmiştir; bu durum, Türk sinemasının bu dönemde yaşadığı yükselişi doğrulamaktadır. Tiyatroda ise tablo tersine dönmektedir: Hem oynanan eser hem de seyirci sayısında telif (yerli) eserler çeviri eserlere kıyasla çok daha büyük bir paya sahip olup bu oran dönem boyunca istikrarlı biçimde korunmuştur.
 
 ## Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi
 
@@ -1000,9 +1040,9 @@ ggplot(eglence_nufus_data, aes(x = Nufus_Milyon, y = Eglence_Kultur_Harcama)) +
   guides(color = guide_colorbar(title.position = "left", title.hjust = 0.5, barborder = element_blank()))
 ```
 
+Regresyon trendi, nüfus büyümesiyle birlikte hanehalkının eğlence ve kültüre ayırdığı bütçe payının hafif de olsa artış eğiliminde olduğuna işaret etmektedir. Ancak noktaların trend çizgisi etrafında geniş bir dağılım sergilemesi, bu ilişkinin zayıf ve tek başına açıklayıcı olmaktan uzak olduğunu göstermektedir. Nitekim 2012 civarındaki zirve ve 2006 ile 2023'teki belirgin düşüşler, harcama payını nüfustan bağımsız olarak şekillendiren ekonomik konjonktür, enflasyon ve pandemi gibi dışsal faktörlerin belirleyiciliğini ortaya koymaktadır.
 
 ## Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)
-
 
 ```{r eglencekultur-nüfus-kultur-dataframe, message=FALSE, warning=FALSE, echo=FALSE}
 
@@ -1142,3 +1182,11 @@ ggplot(kultur_nufus_data, aes(x = Nufus_Milyon)) +
 
 
 ```
+
+Üç sektörde de hanehalkı eğlence-kültür harcama payı (siyah düz çizgi) nüfus büyümesiyle birlikte yataya yakın seyretmekte; yani artan nüfus, kültürel harcamaları bütçedeki ağırlığını koruyacak düzeyde beraberinde getirmektedir. Seyirci trendleri ise sektörler arasında belirgin biçimde ayrışmaktadır: Sinema ve tiyatroda seyirci yoğunluğu eğrisi (kesikli çizgi) nüfusla birlikte güçlü bir artış sergilemekte ve bu iki sektörün demografik büyümeden orantılı pay aldığını göstermektedir. Opera ve Bale'de ise seyirci trendi neredeyse yatay kalmakta; harcama payındaki hafif artışın bu sektöre talep olarak yansımadığı görülmektedir. Güven aralıklarının sinema ve tiyatroda görece dar, opera panelinde ise geniş olması, niş sektördeki tahmin belirsizliğini de sayısal olarak teyit etmektedir.
+
+
+
+# Sonuçlar
+
+# Yapay Zeka Kullanımı

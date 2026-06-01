@@ -12,9 +12,9 @@
   {
     "objectID": "proje.html",
     "href": "proje.html",
-    "title": "Proje X (proje adını yazınız)",
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
     "section": "",
-    "text": "Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.\n(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)"
+    "text": "📥 Bu Sayfayı PDF Olarak İndir"
   },
   {
     "objectID": "proje.html#veri-kaynağı",
@@ -229,43 +229,43 @@
   {
     "objectID": "proje.html#verilerin-özet-istatiksel-değer-tabloları",
     "href": "proje.html#verilerin-özet-istatiksel-değer-tabloları",
-    "title": "Proje X (proje adını yazınız)",
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
     "section": "5.1 Verilerin Özet İstatiksel Değer Tabloları",
     "text": "5.1 Verilerin Özet İstatiksel Değer Tabloları\n\n\n\n\n\n\n\n\nTiyatro Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n4.569\n3.437\n608\n4.252\n9.796\n\n\nOyun_Telif\n25\n3.817\n2.969\n376\n3.470\n8.392\n\n\nOyun_Ceviri\n25\n751\n478\n160\n782\n1.488\n\n\nToplam_Seyirci\n25\n4.698.386\n2.042.384\n714.864\n5.248.226\n8.053.186\n\n\nSeyirci_Telif\n25\n3.462.208\n1.614.695\n541.659\n3.854.341\n5.903.438\n\n\nSeyirci_Ceviri\n25\n1.236.178\n466.938\n173.205\n1.255.391\n2.158.041\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpera ve Bale Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Eser\n25\n172\n49\n84\n188\n251\n\n\nYerli_Eser\n25\n81\n35\n20\n84\n143\n\n\nYabancı_Eser\n25\n91\n25\n51\n90\n136\n\n\nToplam_Seyirci\n25\n290.520\n97.200\n14.032\n281.069\n457.717\n\n\nYerliEser_Seyirci\n25\n110.845\n49.633\n6.682\n115.469\n220.172\n\n\nYabancıEser_Seyirci\n25\n179.675\n79.726\n7.350\n173.217\n426.051\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSinema Veri Seti Özet İstatistikleri\n\n\n2000-2024 Yılları Arası Genel Dağılım\n\n\n\nGözlem (Yıl)\nOrtalama\nStd. Sapma\nEn Düşük\nMedyan\nEn Yüksek\n\n\n\n\nToplam_Film\n25\n38.864\n14.529\n21.254\n35.999\n68.386\n\n\nYerli_Film\n25\n14.508\n8.788\n3.302\n12.885\n30.145\n\n\nYabancı_Film\n25\n24.356\n6.108\n14.982\n23.114\n39.322\n\n\nToplam_Seyirci\n25\n34.039.420\n17.210.140\n12.418.777\n31.334.447\n68.482.526\n\n\nYerliFilm_Seyirci\n25\n16.887.844\n11.452.565\n2.079.671\n16.166.153\n39.195.881\n\n\nYabancıFilm_Seyirci\n25\n17.151.576\n6.308.873\n3.971.103\n16.114.198\n30.578.435"
   },
   {
     "objectID": "proje.html#veri-setinin-kullanılacak-sütunların-ayrıştırılmış-halleri",
     "href": "proje.html#veri-setinin-kullanılacak-sütunların-ayrıştırılmış-halleri",
-    "title": "Proje X (proje adını yazınız)",
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
     "section": "5.2 Veri setinin kullanılacak sütunların ayrıştırılmış halleri",
     "text": "5.2 Veri setinin kullanılacak sütunların ayrıştırılmış halleri"
   },
   {
     "objectID": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yıllar-içerisindeki-değişimi",
     "href": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yıllar-içerisindeki-değişimi",
-    "title": "Proje X (proje adını yazınız)",
-    "section": "5.3 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi",
-    "text": "5.3 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi"
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
+    "section": "6.1 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi",
+    "text": "6.1 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yıllar İçerisindeki Değişimi\n\n\n\n\n\n\n\n\n\nTürkiye’de üç kültürel sektörün 2000-2024 seyirci eğilimleri hem ölçek hem dinamik açısından ayrışmaktadır. Sinema 2018’de 68 milyon seyirciyle zirveye ulaşarak kitlesel eğlencenin baskın mecrası konumunu pekiştirirken, tiyatro 2010’lardan itibaren ivme kazanarak 8 milyon seyirci sınırına yaklaşmıştır. Opera ve Bale ise 250.000–450.000 bandındaki volatil seyirci tabanıyla niş karakterini korumuştur. 2020 pandemi kırılması üç sektörü de derinden etkilemiş; sinema %97, tiyatro %91, opera %84 oranında seyirci kaybetmiştir. Toparlanma sürecinde sektörler ayrışmıştır: tiyatro 2024’te tüm zamanların zirvesine ulaşırken, sinema pandemi öncesi seviyenin yaklaşık yarısında kalmaktadır. Bu tablonun ardında dijital yayın platformlarının izleme alışkanlıklarında yarattığı yapısal dönüşüm belirleyici bir etken olarak öne çıkmaktadır."
   },
   {
     "objectID": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yerliyabancı-tercihleri",
     "href": "proje.html#operabale-sinema-ve-tiyatro-seyirci-kitlesinin-yerliyabancı-tercihleri",
-    "title": "Proje X (proje adını yazınız)",
-    "section": "5.4 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri",
-    "text": "5.4 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri"
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
+    "section": "6.2 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri",
+    "text": "6.2 Opera&Bale, Sinema ve Tiyatro Seyirci Kitlesinin Yerli/Yabancı Tercihleri\n\n\n\n\n\n\n\n\n\nÜç sektörde de arz ve talep açısından yerli-yabancı dengesi birbirinden farklı bir yapı sergilemektedir. Opera ve Bale’de yabancı eserler hem sayı hem seyirci bakımından dönem boyunca baskın konumunu korumuş; yerli üretim ise sınırlı ve dalgalı seyretmiştir. Sinemada arz tarafında yabancı filmler sayısal üstünlüğünü sürdürse de talep tarafında yerli filmler 2010’lardan itibaren belirgin biçimde güçlenmiş ve zaman zaman yabancı filmlerin seyirci sayısını geçmiştir; bu durum, Türk sinemasının bu dönemde yaşadığı yükselişi doğrulamaktadır. Tiyatroda ise tablo tersine dönmektedir: Hem oynanan eser hem de seyirci sayısında telif (yerli) eserler çeviri eserlere kıyasla çok daha büyük bir paya sahip olup bu oran dönem boyunca istikrarlı biçimde korunmuştur."
   },
   {
     "objectID": "proje.html#nüfustaki-artışa-göre-eğlence-kültür-alanına-yapılan-harcama-indeksi",
     "href": "proje.html#nüfustaki-artışa-göre-eğlence-kültür-alanına-yapılan-harcama-indeksi",
-    "title": "Proje X (proje adını yazınız)",
-    "section": "5.5 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi",
-    "text": "5.5 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi"
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
+    "section": "6.3 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi",
+    "text": "6.3 Nüfustaki Artışa Göre Eğlence-Kültür Alanına Yapılan Harcama Indeksi\n\n\n\n\n\n\n\n\n\nRegresyon trendi, nüfus büyümesiyle birlikte hanehalkının eğlence ve kültüre ayırdığı bütçe payının hafif de olsa artış eğiliminde olduğuna işaret etmektedir. Ancak noktaların trend çizgisi etrafında geniş bir dağılım sergilemesi, bu ilişkinin zayıf ve tek başına açıklayıcı olmaktan uzak olduğunu göstermektedir. Nitekim 2012 civarındaki zirve ve 2006 ile 2023’teki belirgin düşüşler, harcama payını nüfustan bağımsız olarak şekillendiren ekonomik konjonktür, enflasyon ve pandemi gibi dışsal faktörlerin belirleyiciliğini ortaya koymaktadır."
   },
   {
     "objectID": "proje.html#eğlence-kültür-harcama-indeksinin-sanat-dalları-ile-kıyaslaması-regresyon-modeli-analizi",
     "href": "proje.html#eğlence-kültür-harcama-indeksinin-sanat-dalları-ile-kıyaslaması-regresyon-modeli-analizi",
-    "title": "Proje X (proje adını yazınız)",
-    "section": "5.6 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)",
-    "text": "5.6 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)"
+    "title": "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE’NİN SAHNE YOLCULUĞU",
+    "section": "6.4 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)",
+    "text": "6.4 Eğlence-Kültür Harcama İndeksinin Sanat Dalları ile Kıyaslaması (Regresyon Modeli Analizi)\n\n\n\n\n\n\n\n\n\nÜç sektörde de hanehalkı eğlence-kültür harcama payı (siyah düz çizgi) nüfus büyümesiyle birlikte yataya yakın seyretmekte; yani artan nüfus, kültürel harcamaları bütçedeki ağırlığını koruyacak düzeyde beraberinde getirmektedir. Seyirci trendleri ise sektörler arasında belirgin biçimde ayrışmaktadır: Sinema ve tiyatroda seyirci yoğunluğu eğrisi (kesikli çizgi) nüfusla birlikte güçlü bir artış sergilemekte ve bu iki sektörün demografik büyümeden orantılı pay aldığını göstermektedir. Opera ve Bale’de ise seyirci trendi neredeyse yatay kalmakta; harcama payındaki hafif artışın bu sektöre talep olarak yansımadığı görülmektedir. Güven aralıklarının sinema ve tiyatroda görece dar, opera panelinde ise geniş olması, niş sektördeki tahmin belirsizliğini de sayısal olarak teyit etmektedir."
   }
 ]
