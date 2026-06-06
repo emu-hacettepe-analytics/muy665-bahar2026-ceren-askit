@@ -1,6 +1,17 @@
 ---
 title: "ALKIŞ ANALİTİĞİ - VERİLERLE TÜRKİYE'NİN SAHNE YOLCULUĞU"
 number-sections: true
+
+format: 
+  html:
+    include-in-header:
+      text: |
+        <style>
+        @media print {
+          .toc, #quarto-sidebar, .navbar, footer, header, .no-print-button { display: none !important; }
+          body { background: white; color: black; }
+        }
+        </style>
 ---
 
 ![](data/proje_foto.jpeg){fig-align="center" width="1000" height="600"}
@@ -1199,3 +1210,22 @@ Türkiye’de kültürel tüketim alışkanlıklarının yıllar içerisindeki d
 # Yapay Zeka Kullanımı
 
 Bu çalışma sürecinde, veri analizi ve raporlama aşamalarında fikir geliştirme, kod hata ayıklama ve metin düzenleme amacıyla yapay zeka destek araçlarından yararlanılmıştır. Nihai analizler, yorumlar ve proje kurgusu grup üyeleri tarafından oluşturulmuştur.
+
+<div class="no-print-button" style="text-align: center; margin: 40px 0 50px 0;">
+  <hr style="border: 0; height: 1px; background: #E2E8F0; margin-bottom: 20px;">
+  <button onclick="window.print()" style="
+    background-color: #1f77b4; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 15px; 
+    font-weight: bold; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;">
+    Raporu PDF Olarak İndirmek için Tıklayınız.
+  </button>
+</div>
